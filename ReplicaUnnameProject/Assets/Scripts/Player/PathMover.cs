@@ -10,12 +10,16 @@ public class PathMover : MonoBehaviour
 
     Character character;
 
+    public bool canMove;
+
     private void Awake()
     {
         character = GetComponent<Character>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         FindObjectOfType<PathCreator>().OnNewPathCreated += SetPoints;
+
+        Debug.Log(pathPoints.Count);
     }
 
     private void SetPoints(IEnumerable<Vector3> points)
@@ -26,6 +30,8 @@ public class PathMover : MonoBehaviour
 
     private void Update()
     {
+        //FindObjectOfType<PathCreator>().OnNewPathCreated += SetPoints;
+
         if (pathPoints.Count > 0)
         {
             character.playerState = PlayerState.Run;
@@ -49,7 +55,8 @@ public class PathMover : MonoBehaviour
             character.playerState = PlayerState.Die;
         }
 
-        UpdatePathing();
+        if (canMove) 
+            UpdatePathing();
     }
 
     private void UpdatePathing()

@@ -61,7 +61,7 @@ public class Projectile : MonoBehaviour
         {
             Character character = collider.GetComponent<Character>();
             character.TakeDamage(1);
-            Debug.Log("Hit");
+            Debug.Log("This bullet hit player");
             pool.ReturnObject(gameObject);
         }
 

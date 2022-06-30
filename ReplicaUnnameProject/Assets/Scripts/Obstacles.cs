@@ -10,7 +10,9 @@ public class Obstacles : MonoBehaviour
         {
             Character character = other.GetComponent<Character>();
             character.currentHealth = 0;
+            character.pathCreator.points.Clear();
             character.playerState = PlayerState.Die;
+            Debug.Log("Wall");
         }
     }
 }

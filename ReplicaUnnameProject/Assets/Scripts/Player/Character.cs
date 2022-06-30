@@ -111,7 +111,7 @@ public class Character : MonoBehaviour
                 range = 0.5f;
                 break;
             case AttackState.MeleeAttack:
-                range = 2;
+                range = 1.5f;
                 break;
             case AttackState.RangeAttack:
                 range = 5;
@@ -132,9 +132,12 @@ public class Character : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         //if(other.CompareTag("Enemy"))
         if (other.TryGetComponent<Enemy>(out Enemy enemy))
         {
+            transform.LookAt(enemy.transform);
+            pathMover.canMove = false;
             //SetTarget(enemy);
             switch (attackState)
             {
@@ -169,6 +172,7 @@ public class Character : MonoBehaviour
     //Change from attack anim to run anim
     public void fromAttackToRun()
     {
+        pathMover.canMove = true;
         animator.SetBool("IsAttack", false);
     }
 

@@ -16,9 +16,10 @@ MonoBehaviour:
   description: 
   itemType: 0
   weaponType: 1
+  skillType: 0
   itemPrefab: {fileID: 100000, guid: 876a9efcae3245e4ab66feeb8f437976, type: 3}
   material: {fileID: 0}
   AttachPosition: {x: -0.1, y: 0.125, z: 0.101}
   AttachRotation: {x: 3.218, y: 23.066, z: 194.848}
   CharacterScale: {x: 2, y: 2, z: 2}
-  ItemScale: {x: 1, y: 1, z: 1}
+  ItemScale: {x: 1, y: 3, z: 1}
