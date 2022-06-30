@@ -22,6 +22,10 @@ public class ItemsManager : MonoBehaviour
 
     [SerializeField]
     private Character character;
+    [SerializeField]
+    private Shield shield;
+    [SerializeField]
+    private SphereCollider shieldCollider;
 
     private void Start()
     {
@@ -124,18 +128,32 @@ public class ItemsManager : MonoBehaviour
         if (currentSkill != null)
             currentSkill.SetActive(false);
 
+        currentSkill = Instantiate(itemsData.itemPrefab);
+        currentSkill.transform.parent = Hand.transform;
+
         switch (itemsData.skillType)
         {
             case SkillType.SkillMini:
                 //Change size of Character if collect Mini Potion
 
-                Shield shield = character.bubbleShield.GetComponent<Shield>();
+                Debug.Log("Mini");
+
+                //Shield shield = character.bubbleShield.GetComponent<Shield>();
+                //shield._shieldOn = true;
+                //shield.OpenCloseShield();
+
+                shield = character.bubbleShield.GetComponent<Shield>();
                 shield._shieldOn = true;
                 shield.OpenCloseShield();
-                SphereCollider sphereCollider = character.bubbleShield.GetComponent<SphereCollider>();
-                sphereCollider.enabled = false;
+
+                //SphereCollider sphereCollider = character.bubbleShield.GetComponent<SphereCollider>();
+                //sphereCollider.enabled = false;
+
+                shieldCollider = character.bubbleShield.GetComponent<SphereCollider>();
+                shieldCollider.enabled = false;
 
                 character.transform.localScale = itemsData.CharacterScale;
+
                 int Layer = LayerMask.NameToLayer("Player");
                 gameObject.layer = Layer;
 
@@ -148,13 +166,24 @@ public class ItemsManager : MonoBehaviour
             case SkillType.SkillInvisible:
                 //Change transparent and make character invisible in enemy's field of view
 
-                Shield shield1 = character.bubbleShield.GetComponent<Shield>();
-                shield1._shieldOn = true;
-                shield1.OpenCloseShield();
-                SphereCollider sphereCollider1 = character.bubbleShield.GetComponent<SphereCollider>();
-                sphereCollider1.enabled = false;
+                Debug.Log("Invisible");
+
+                //Shield shield1 = character.bubbleShield.GetComponent<Shield>();
+                //shield1._shieldOn = true;
+                //shield1.OpenCloseShield();
+
+                shield = character.bubbleShield.GetComponent<Shield>();
+                shield._shieldOn = true;
+                shield.OpenCloseShield();
+
+                //SphereCollider sphereCollider1 = character.bubbleShield.GetComponent<SphereCollider>();
+                //sphereCollider1.enabled = false;
+
+                shieldCollider = character.bubbleShield.GetComponent<SphereCollider>();
+                shieldCollider.enabled = false;
 
                 character.transform.localScale = itemsData.CharacterScale;
+
                 int LayerIgnore = LayerMask.NameToLayer("Ignore Raycast");
                 gameObject.layer = LayerIgnore;
 
@@ -168,13 +197,24 @@ public class ItemsManager : MonoBehaviour
                 //Make character Invincible
                 //character.currentHealth = 9999;
 
-                Shield shield2 = character.bubbleShield.GetComponent<Shield>();
-                shield2._shieldOn = false;
-                shield2.OpenCloseShield();
-                SphereCollider sphereCollider2 = character.bubbleShield.GetComponent<SphereCollider>();
-                sphereCollider2.enabled = true;
+                Debug.Log("Invincible");
+
+                //Shield shield2 = character.bubbleShield.GetComponent<Shield>();
+                //shield2._shieldOn = false;
+                //shield2.OpenCloseShield();
+
+                shield = character.bubbleShield.GetComponent<Shield>();
+                shield._shieldOn = false;
+                shield.OpenCloseShield();
+
+                //SphereCollider sphereCollider2 = character.bubbleShield.GetComponent<SphereCollider>();
+                //sphereCollider2.enabled = true;
+
+                shieldCollider = character.bubbleShield.GetComponent<SphereCollider>();
+                shieldCollider.enabled = true;
 
                 character.transform.localScale = itemsData.CharacterScale;
+
                 int PlayerLayer = LayerMask.NameToLayer("Player");
                 gameObject.layer = PlayerLayer;
 
