@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     private GameObject bullet;
     [SerializeField, Tooltip("Bullet Direction and Position to Shoot in")]
     private Transform bulletDirection;
+    public GameObject muzzleFlash;
 
     [SerializeField]
     private Pooler bulletPool;
@@ -96,15 +97,28 @@ public class Enemy : MonoBehaviour
     {
         shot = true;
 
+        EffectManager.Instance.SpawnFireBulletSound();
+        muzzleFlash.SetActive(true);
+        StartCoroutine(wait());
+
         GameObject g = bulletPool.GetObject();
         g.transform.position = bulletDirection.position;
         g.transform.rotation = bulletDirection.rotation;
         g.SetActive(true);
     }
 
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(0.05f);
+        muzzleFlash.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+       if (other.CompareTag("Bullet"))
+        {
             health = 0;
             enemyState = EnemyState.Die;
+        }
     }
 }

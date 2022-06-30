@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour
             _hitNormal = hit.normal;
             _hitPos = hit.point;
             float distance = (transform.position - hit.point).magnitude;
-            if(distance< delta.magnitude)
+            if(distance < delta.magnitude)
             {
                 Hit(hit.collider);
             }
@@ -64,5 +64,11 @@ public class Projectile : MonoBehaviour
             Debug.Log("Hit");
             pool.ReturnObject(gameObject);
         }
+
+        //if (collider.CompareTag("Item"))
+        //{
+        //    Physics.IgnoreCollision(collider, gameObject.GetComponent<Collider>(), false);
+        //    Debug.Log("Ignore");
+        //}
     }
 }

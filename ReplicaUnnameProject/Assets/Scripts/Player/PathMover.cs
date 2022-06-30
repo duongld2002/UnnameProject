@@ -29,7 +29,6 @@ public class PathMover : MonoBehaviour
         if (pathPoints.Count > 0)
         {
             character.playerState = PlayerState.Run;
-            Debug.Log(pathPoints.Count);
         }
         else if (character.currentHealth > 0 && pathPoints.Count == 0 && character.gameState == GameState.NotStart)
         {

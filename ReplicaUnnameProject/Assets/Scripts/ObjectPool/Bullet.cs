@@ -31,15 +31,15 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Character character = other.GetComponent<Character>();
-            character.TakeDamage(1);
-            Debug.Log("Hit");
-            pool.ReturnObject(gameObject);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Trigger");
+    //        Character character = other.GetComponent<Character>();
+    //        //character.TakeDamage(1);
+    //        pool.ReturnObject(gameObject);
+    //    }
+    //}
 
 }

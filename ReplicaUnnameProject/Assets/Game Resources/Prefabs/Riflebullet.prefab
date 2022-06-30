@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8565726956371968}
   m_Layer: 8
   m_Name: Riflebullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   maxDistance: 7
+  pool: {fileID: 0}
 --- !u!136 &7853126529243175187
 CapsuleCollider:
   m_ObjectHideFlags: 0

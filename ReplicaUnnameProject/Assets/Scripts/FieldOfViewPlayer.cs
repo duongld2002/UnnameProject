@@ -15,6 +15,7 @@ public class FieldOfViewPlayer : MonoBehaviour
     public List<Transform> visibleTargets = new List<Transform>();
 
     Character character;
+    public ItemsManager itemsManager;
 
     [SerializeField]
     GameObject attackRange;
@@ -74,9 +75,15 @@ public class FieldOfViewPlayer : MonoBehaviour
                 {
                     visibleTargets.Add(target);
 
+                    if (character.currentHealth > 0 && character.attackState == AttackState.RangeAttack)
+                    {
+                        //this.transform.LookAt(target);
+                        itemsManager.currentItem.transform.LookAt(target);
+                        character.performShoot();
+                        attackRange.SetActive(true);
+                    }
                     if (character.currentHealth > 0)
                     {
-                        this.transform.LookAt(target);
                         attackRange.SetActive(true);
                     }
                     else if (character.currentHealth <= 0)

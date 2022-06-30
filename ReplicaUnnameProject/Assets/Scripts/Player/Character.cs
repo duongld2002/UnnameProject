@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PlayerState
 {
@@ -30,15 +31,31 @@ public class Character : MonoBehaviour
     public SkinnedMeshRenderer[] renderers;
 
     //Character attack range
+    [Header("Attack Range")]
     public float range;
     public CapsuleCollider attackRange, playerCollider;
 
     //Character health
     [Header("Health")]
-    public int currentHealth;
-    public int maxHealth = 3;
+    public float currentHealth;
+    public float maxHealth = 3;
     [SerializeField]
-    private ProgressBar healthBar;
+    ProgressBarPro progressBarPro;
+    //private Image healthBar;
+
+    //Perform Shoot
+    [Header("Gun Shoot")]
+    public float waitTime;
+    private float currentTime;
+    private bool shot;
+    [Header("Bullet Settings")]
+    [SerializeField, Tooltip("Bullet Prefab to Shoot")]
+    private GameObject bullet;
+    [SerializeField, Tooltip("Bullet Direction and Position to Shoot in")]
+    public Transform bulletDirection;
+
+    [SerializeField]
+    private Pooler bulletPool;
 
     private Enemy targetEnemy;
 
@@ -55,6 +72,8 @@ public class Character : MonoBehaviour
         animator = GetComponent<Animator>();
         renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         playerCollider = GetComponent<CapsuleCollider>();
+
+        UpdateHealthBar();
 
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCount = gos.Length;
@@ -107,6 +126,8 @@ public class Character : MonoBehaviour
 
         attackRange.radius = range;
 
+        if (attackState == AttackState.RangeAttack)
+            attackRange.radius = 0.5f;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -129,7 +150,21 @@ public class Character : MonoBehaviour
                     break;
             }
         }
-    }   
+
+        if (other.CompareTag("Bullet"))
+        {
+            TakeDamage(0.5f);
+        }
+    }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("Collision");
+    //    if (collision.gameObject.CompareTag("Bullet"))
+    //    {
+    //        TakeDamage(1);
+    //    }
+    //}
 
     //Change from attack anim to run anim
     public void fromAttackToRun()
@@ -138,19 +173,26 @@ public class Character : MonoBehaviour
     }
 
     //Take damage from enemy projectile 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-
-        healthBar.SetProgress(currentHealth / maxHealth, 3);
+        UpdateHealthBar();
 
         if (currentHealth <= 0)
             playerState = PlayerState.Die;
     }
 
-    public void SetupHealthBar(Canvas canvas, Camera camera)
+    //Health Bar
+    private void UpdateHealthBar()
     {
-        healthBar.transform.SetParent(canvas.transform);
+        progressBarPro.SetValue(currentHealth, maxHealth);
+        Debug.Log(currentHealth + " / " + maxHealth);
+    }
+
+    //Character die
+    void OnDie()
+    {
+        gameObject.SetActive(false);
     }
 
     //Not sure what this can do yet, maybe never use this one
@@ -164,5 +206,32 @@ public class Character : MonoBehaviour
     {
         timeManager.DoSlowMotion();
     }
+
+    public void performShoot()
+    {
+        //gun.transform.localPosition = new Vector3();
+
+        if (currentTime == 0)
+            Shoot();
+
+        if (shot && currentTime < waitTime)
+            currentTime += 1 * Time.deltaTime;
+
+        if (currentTime >= waitTime)
+            currentTime = 0;
+    }
+
+    public void Shoot()
+    {
+        shot = true;
+
+        EffectManager.Instance.SpawnFireBulletSound();
+
+        GameObject g = bulletPool.GetObject();
+        g.transform.position = bulletDirection.position;
+        g.transform.rotation = bulletDirection.rotation;
+        g.SetActive(true);
+    }
+
 }
 

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 
-  itemType: 3
+  itemType: 1
   weaponType: 0
+  skillType: 0
   itemPrefab: {fileID: 146310, guid: f244d85ca954f4336a1a7595053efbfc, type: 3}
   material: {fileID: 2100000, guid: d92ef32394b5f474385d74b565a7bdd7, type: 2}
   AttachPosition: {x: 0, y: 0, z: 0}

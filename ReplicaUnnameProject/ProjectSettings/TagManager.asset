@@ -10,6 +10,8 @@ TagManager:
   - Obstacle
   - FinishPlace
   - FOV
+  - Item
+  - Bullet
   layers:
   - Default
   - TransparentFX

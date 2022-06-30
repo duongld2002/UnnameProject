@@ -73,7 +73,7 @@ public class FieldOfView : MonoBehaviour
                     {
                         enemy.enemyState = EnemyState.Attack;
                         this.transform.LookAt(target);
-                        gun.LookAt(target);
+                        gun.LookAt(target.transform.position + Vector3.up);
                     }
                     else if (enemy.health <= 0)
                     {
