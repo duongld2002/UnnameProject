@@ -121,6 +121,9 @@ public class ItemsManager : MonoBehaviour
     {
         equipedSkill = itemsData;
 
+        if (currentSkill != null)
+            currentSkill.SetActive(false);
+
         switch (itemsData.skillType)
         {
             case SkillType.SkillMini:
