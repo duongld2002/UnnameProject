@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class ItemsManager : MonoBehaviour
 {
-    //[SerializeField]
-    //private Transform itemSlot;
-
     public GameObject currentItem;
     public GameObject currentSkill;
 
     public GameObject Hand;
-
-    //[SerializeField]
-    //AudioSource pickUpSound;
 
     [SerializeField]
     private ItemAndSkill equippedItems;
@@ -49,67 +43,6 @@ public class ItemsManager : MonoBehaviour
 
         character.bulletDirection = currentItem.transform;
 
-        //switch (itemsData.itemType)
-        //{
-        //    case ItemType.SkillMini:
-        //        //Change size of Character if collect Mini Potion
-        //
-        //        Shield shield = character.bubbleShield.GetComponent<Shield>();
-        //        shield._shieldOn = true;
-        //        shield.OpenCloseShield();
-        //        SphereCollider sphereCollider = character.bubbleShield.GetComponent<SphereCollider>();
-        //        sphereCollider.enabled = false;
-        //
-        //        character.transform.localScale = itemsData.CharacterScale;
-        //        int Layer = LayerMask.NameToLayer("Player");
-        //        gameObject.layer = Layer;
-        //
-        //        foreach (var rend in character.renderers)
-        //        {
-        //            rend.material = itemsData.material;
-        //        }
-        //        break;
-        //
-        //    case ItemType.SkillInvisible:
-        //        //Change transparent and make character invisible in enemy's field of view
-        //
-        //        Shield shield1 = character.bubbleShield.GetComponent<Shield>();
-        //        shield1._shieldOn = true;
-        //        shield1.OpenCloseShield();
-        //        SphereCollider sphereCollider1 = character.bubbleShield.GetComponent<SphereCollider>();
-        //        sphereCollider1.enabled = false;
-        //
-        //        character.transform.localScale = itemsData.CharacterScale;
-        //        int LayerIgnore = LayerMask.NameToLayer("Ignore Raycast");
-        //        gameObject.layer = LayerIgnore;
-        //
-        //        foreach (var rend in character.renderers)
-        //        {
-        //            rend.material = itemsData.material;
-        //        }
-        //        break;
-        //
-        //    case ItemType.SkillInvincible:
-        //        //Make character Invincible
-        //        //character.currentHealth = 9999;
-        //
-        //        Shield shield2 = character.bubbleShield.GetComponent<Shield>();
-        //        shield2._shieldOn = false;
-        //        shield2.OpenCloseShield();
-        //        SphereCollider sphereCollider2 = character.bubbleShield.GetComponent<SphereCollider>();
-        //        sphereCollider2.enabled = true;
-        //
-        //        character.transform.localScale = itemsData.CharacterScale;
-        //        int PlayerLayer = LayerMask.NameToLayer("Player");
-        //        gameObject.layer = PlayerLayer;
-        //
-        //        foreach (var rend in character.renderers)
-        //        {
-        //            rend.material = itemsData.material;
-        //        }
-        //        break;
-        //}
-
         switch (itemsData.weaponType)
         {
             case WeaponType.Melee:
@@ -138,16 +71,9 @@ public class ItemsManager : MonoBehaviour
 
                 Debug.Log("Mini");
 
-                //Shield shield = character.bubbleShield.GetComponent<Shield>();
-                //shield._shieldOn = true;
-                //shield.OpenCloseShield();
-
                 shield = character.bubbleShield.GetComponent<Shield>();
                 shield._shieldOn = true;
                 shield.OpenCloseShield();
-
-                //SphereCollider sphereCollider = character.bubbleShield.GetComponent<SphereCollider>();
-                //sphereCollider.enabled = false;
 
                 shieldCollider = character.bubbleShield.GetComponent<SphereCollider>();
                 shieldCollider.enabled = false;
@@ -168,16 +94,9 @@ public class ItemsManager : MonoBehaviour
 
                 Debug.Log("Invisible");
 
-                //Shield shield1 = character.bubbleShield.GetComponent<Shield>();
-                //shield1._shieldOn = true;
-                //shield1.OpenCloseShield();
-
                 shield = character.bubbleShield.GetComponent<Shield>();
                 shield._shieldOn = true;
                 shield.OpenCloseShield();
-
-                //SphereCollider sphereCollider1 = character.bubbleShield.GetComponent<SphereCollider>();
-                //sphereCollider1.enabled = false;
 
                 shieldCollider = character.bubbleShield.GetComponent<SphereCollider>();
                 shieldCollider.enabled = false;
@@ -199,16 +118,9 @@ public class ItemsManager : MonoBehaviour
 
                 Debug.Log("Invincible");
 
-                //Shield shield2 = character.bubbleShield.GetComponent<Shield>();
-                //shield2._shieldOn = false;
-                //shield2.OpenCloseShield();
-
                 shield = character.bubbleShield.GetComponent<Shield>();
                 shield._shieldOn = false;
                 shield.OpenCloseShield();
-
-                //SphereCollider sphereCollider2 = character.bubbleShield.GetComponent<SphereCollider>();
-                //sphereCollider2.enabled = true;
 
                 shieldCollider = character.bubbleShield.GetComponent<SphereCollider>();
                 shieldCollider.enabled = true;

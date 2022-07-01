@@ -986,3 +986,12 @@ E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\obj\Debug\Assembly-C
 E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\obj\Debug\Assembly-CSharp.dll
 E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\obj\Debug\Assembly-CSharp.pdb
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\DemiLib.dll
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\DOTween.dll
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\DOTweenPro.dll
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\Unity.2D.Sprite.Editor.dll
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\Assembly-CSharp-firstpass.pdb
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\DemiLib.xml
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\DOTween.xml
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\DOTweenPro.xml
+E:\Duong Game\UnnameGame\UnnameProject\ReplicaUnnameProject\Temp\Bin\Debug\Unity.2D.Sprite.Editor.pdb

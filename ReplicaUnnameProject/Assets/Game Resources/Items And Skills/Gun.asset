@@ -22,4 +22,4 @@ MonoBehaviour:
   AttachPosition: {x: -0.1, y: 0.125, z: 0.101}
   AttachRotation: {x: 3.218, y: 23.066, z: 194.848}
   CharacterScale: {x: 2, y: 2, z: 2}
-  ItemScale: {x: 1, y: 3, z: 1}
+  ItemScale: {x: 2, y: 2, z: 2}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 481936}
   - component: {fileID: 3339150}
   - component: {fileID: 2396436}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Potion_Stamina
   m_TagString: Untagged
   m_Icon: {fileID: 0}

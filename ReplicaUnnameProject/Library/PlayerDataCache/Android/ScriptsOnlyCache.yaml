@@ -3,21 +3,35 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Bullet
     - Character
+    - EffectManager
     - Enemy
     - FieldOfView
     - FieldOfViewPlayer
+    - ItemAndSkill
     - Items
-    - ItemsAndSkillsData
     - ItemsManager
+    - LookAtCamera
+    - MagnifyingObject
     - Obstacles
     - PathCreator
     - PathMover
+    - PickableItems
+    - PlayfulSystems.ImageSlicedMirror
+    - PlayfulSystems.ProgressBar.BarViewColor
+    - PlayfulSystems.ProgressBar.BarViewSizeAnchors
+    - PlayfulSystems.ProgressBar.BarViewSizeAnchorsShadow
     - Pooler
+    - ProgressBarPro
+    - Projectile
+    - Shield
+    - TimeManager
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineTransposer
     - Cinemachine.CinemachineVirtualCamera
+    DOTween.dll:
+    - DG.Tweening.Core.DOTweenSettings
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -55,8 +69,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.XRSystemData
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -68,6 +80,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
@@ -111,6 +125,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 90
@@ -119,127 +137,161 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
+    - Class: 96
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1594}
+      Script: {instanceID: 1632}
     - Class: 114
-      Script: {instanceID: 1596}
+      Script: {instanceID: 1634}
     - Class: 114
-      Script: {instanceID: 1598}
+      Script: {instanceID: 1636}
     - Class: 114
-      Script: {instanceID: 1600}
-    - Class: 114
-      Script: {instanceID: 1606}
+      Script: {instanceID: 1638}
     - Class: 114
       Script: {instanceID: 1640}
     - Class: 114
-      Script: {instanceID: 1742}
+      Script: {instanceID: 1646}
     - Class: 114
-      Script: {instanceID: 2230}
+      Script: {instanceID: 1684}
     - Class: 114
-      Script: {instanceID: 2274}
+      Script: {instanceID: 1790}
     - Class: 114
-      Script: {instanceID: 2310}
+      Script: {instanceID: 2292}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2294}
     - Class: 114
-      Script: {instanceID: 2560}
+      Script: {instanceID: 2340}
     - Class: 114
-      Script: {instanceID: 2856}
+      Script: {instanceID: 2376}
     - Class: 114
-      Script: {instanceID: 2912}
+      Script: {instanceID: 2518}
     - Class: 114
-      Script: {instanceID: 2972}
+      Script: {instanceID: 2576}
     - Class: 114
-      Script: {instanceID: 3018}
+      Script: {instanceID: 2634}
     - Class: 114
-      Script: {instanceID: 3022}
+      Script: {instanceID: 2636}
     - Class: 114
-      Script: {instanceID: 3044}
+      Script: {instanceID: 2708}
     - Class: 114
-      Script: {instanceID: 3088}
+      Script: {instanceID: 2938}
     - Class: 114
-      Script: {instanceID: 3190}
+      Script: {instanceID: 3000}
+    - Class: 114
+      Script: {instanceID: 3060}
+    - Class: 114
+      Script: {instanceID: 3108}
+    - Class: 114
+      Script: {instanceID: 3112}
+    - Class: 114
+      Script: {instanceID: 3138}
+    - Class: 114
+      Script: {instanceID: 3184}
+    - Class: 114
+      Script: {instanceID: 3278}
     - Class: 114
       Script: {instanceID: 3294}
     - Class: 114
-      Script: {instanceID: 3560}
+      Script: {instanceID: 3398}
     - Class: 114
-      Script: {instanceID: 3584}
+      Script: {instanceID: 3670}
     - Class: 114
-      Script: {instanceID: 3654}
+      Script: {instanceID: 3694}
     - Class: 114
-      Script: {instanceID: 3914}
+      Script: {instanceID: 3768}
     - Class: 114
-      Script: {instanceID: 4152}
+      Script: {instanceID: 4042}
     - Class: 114
-      Script: {instanceID: 4592}
+      Script: {instanceID: 4260}
     - Class: 114
-      Script: {instanceID: 4606}
+      Script: {instanceID: 4298}
     - Class: 114
-      Script: {instanceID: 4630}
+      Script: {instanceID: 4504}
     - Class: 114
-      Script: {instanceID: 4658}
+      Script: {instanceID: 4748}
     - Class: 114
-      Script: {instanceID: 4820}
+      Script: {instanceID: 4762}
     - Class: 114
-      Script: {instanceID: 4822}
+      Script: {instanceID: 4786}
     - Class: 114
-      Script: {instanceID: 4842}
+      Script: {instanceID: 4814}
     - Class: 114
-      Script: {instanceID: 5066}
+      Script: {instanceID: 4978}
     - Class: 114
-      Script: {instanceID: 5072}
+      Script: {instanceID: 4980}
     - Class: 114
-      Script: {instanceID: 5138}
+      Script: {instanceID: 5000}
     - Class: 114
-      Script: {instanceID: 5174}
+      Script: {instanceID: 5228}
     - Class: 114
-      Script: {instanceID: 5298}
+      Script: {instanceID: 5244}
     - Class: 114
-      Script: {instanceID: 5356}
+      Script: {instanceID: 5310}
     - Class: 114
-      Script: {instanceID: 5362}
+      Script: {instanceID: 5346}
     - Class: 114
-      Script: {instanceID: 5378}
+      Script: {instanceID: 5474}
     - Class: 114
-      Script: {instanceID: 5442}
+      Script: {instanceID: 5500}
     - Class: 114
-      Script: {instanceID: 5448}
+      Script: {instanceID: 5540}
     - Class: 114
-      Script: {instanceID: 5480}
+      Script: {instanceID: 5546}
     - Class: 114
-      Script: {instanceID: 5518}
+      Script: {instanceID: 5564}
     - Class: 114
-      Script: {instanceID: 5588}
+      Script: {instanceID: 5628}
     - Class: 114
-      Script: {instanceID: 5688}
+      Script: {instanceID: 5634}
     - Class: 114
-      Script: {instanceID: 5804}
+      Script: {instanceID: 5666}
     - Class: 114
-      Script: {instanceID: 5896}
+      Script: {instanceID: 5704}
     - Class: 114
-      Script: {instanceID: 5936}
+      Script: {instanceID: 5772}
     - Class: 114
-      Script: {instanceID: 6136}
+      Script: {instanceID: 5874}
     - Class: 114
-      Script: {instanceID: 6422}
+      Script: {instanceID: 5888}
     - Class: 114
-      Script: {instanceID: 6692}
+      Script: {instanceID: 6002}
     - Class: 114
-      Script: {instanceID: 6798}
+      Script: {instanceID: 6098}
     - Class: 114
-      Script: {instanceID: 6900}
+      Script: {instanceID: 6138}
     - Class: 114
-      Script: {instanceID: 7078}
+      Script: {instanceID: 6342}
+    - Class: 114
+      Script: {instanceID: 6402}
+    - Class: 114
+      Script: {instanceID: 6410}
+    - Class: 114
+      Script: {instanceID: 6596}
+    - Class: 114
+      Script: {instanceID: 6638}
+    - Class: 114
+      Script: {instanceID: 6914}
+    - Class: 114
+      Script: {instanceID: 6982}
+    - Class: 114
+      Script: {instanceID: 7030}
+    - Class: 114
+      Script: {instanceID: 7134}
+    - Class: 114
+      Script: {instanceID: 7208}
+    - Class: 114
+      Script: {instanceID: 7324}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -250,6 +302,10 @@ ScriptsOnlyBuild:
     - Class: 195
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -288,22 +344,40 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
+      Hash: 748dd2a2a28da4e618912da5ac45684b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: StandaloneInputModule
+  - hash:
+      serializedVersion: 2
       Hash: f69dfc6409fbbd89d3689368e99688a8
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerVector2
   - hash:
       serializedVersion: 2
-      Hash: 7437d1d6aa3502d155e77df2a9a75d87
+      Hash: 0e2dcecfc1a59863d6161482eaa244b3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXPitchRandomizer
+  - hash:
+      serializedVersion: 2
+      Hash: 8b2f7481f470d695da76bf39857daafa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ItemsAndSkillsData
+    className: ItemAndSkill
   - hash:
       serializedVersion: 2
       Hash: ca0b8ad3987cd33b3209a508b6e1562e
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
     className: FreeCamera
+  - hash:
+      serializedVersion: 2
+      Hash: e888ef4305b8fac9cd5510fefa0636bf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXFireProjectile
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -378,6 +452,18 @@ ScriptsOnlyBuild:
     className: WhiteBalance
   - hash:
       serializedVersion: 2
+      Hash: 2890c468cf196dca883ea02bde96343e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXLightFade
+  - hash:
+      serializedVersion: 2
+      Hash: 8e5e00ca42eeebc1eae2f91fabb1ee02
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXButtonScript
+  - hash:
+      serializedVersion: 2
       Hash: 6225eb0973ab0af667bc5f9d1b1b18de
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -414,6 +500,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: e501ab5c46641ef3bdf863c98a7d93d1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewSizeAnchors
+  - hash:
+      serializedVersion: 2
       Hash: 5e1eefcd5106de6c2e85908a3b2d3f04
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -444,16 +536,34 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerGroup
   - hash:
       serializedVersion: 2
+      Hash: a4900d574c1d1a9001f0f83b0dddb24d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ParticleEffectsLibrary
+  - hash:
+      serializedVersion: 2
       Hash: 31995eb8416877c9afd92b5d1b50df0d
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: XRSystemData
   - hash:
       serializedVersion: 2
+      Hash: 1897b4b3d36a814b670b214beed78df0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewColorWhileMoving
+  - hash:
+      serializedVersion: 2
       Hash: c8f1a224e0a43adc56c91864de822dd3
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineVirtualCamera
+  - hash:
+      serializedVersion: 2
+      Hash: b5aaf686465544e9e949e46e293afee1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXMouseOrbit
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -480,6 +590,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 11058c3ecb4b461c4f27c52075f3d8fb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewColor
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -496,6 +612,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerWidget
+  - hash:
+      serializedVersion: 2
+      Hash: 854308ea13cc8c297e5b3bca1df485ca
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProgressBarPro
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -552,10 +674,22 @@ ScriptsOnlyBuild:
     className: ShadowCaster2D
   - hash:
       serializedVersion: 2
-      Hash: 81f3709023f5209d0515048d1db50436
+      Hash: 32cebb2ae4cddf0e4d07ddef22ca3a5c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXTarget
+  - hash:
+      serializedVersion: 2
+      Hash: 3827396d6d7c8afd2f786cf4d8a04ed7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Character
+  - hash:
+      serializedVersion: 2
+      Hash: 79566861074b80c5467fa81dddcf4f5a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXRotation
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -564,10 +698,22 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
+      Hash: cf0208c22e3ab88f0b30856390f57c1c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewSizeImageFill
+  - hash:
+      serializedVersion: 2
       Hash: b639d97cb780d0d99a2bfb3ad1935732
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineMixingCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DissolveHeightSetter
   - hash:
       serializedVersion: 2
       Hash: 69415240821be7986b27e72bf9609a30
@@ -592,6 +738,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerEnumField
+  - hash:
+      serializedVersion: 2
+      Hash: b5d3eb98b0fcb2f64ab9ecfcc39c7f80
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: DG.Tweening
+    className: DOTweenAnimation
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -628,6 +780,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 704dcd31abc789439bc3f3cd10b58c2b
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 9b2663563359a91d0a6867fee160c936
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenSettings
   - hash:
       serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
@@ -684,13 +848,19 @@ ScriptsOnlyBuild:
     className: CinemachineIndependentImpulseListener
   - hash:
       serializedVersion: 2
+      Hash: d69d1dffce74eb58ab43b22680cb1cac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: TestBarControl
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 1fc1cee8b36f50c38311186d323f16e3
+      Hash: 110111494130b114356c990a8b775ece
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FieldOfView
@@ -706,6 +876,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerPersistentCanvas
+  - hash:
+      serializedVersion: 2
+      Hash: 8952e054399e6d9ee5ca703b802e9236
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AssetStoreLink
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TestPageSwitch
   - hash:
       serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
@@ -768,6 +950,12 @@ ScriptsOnlyBuild:
     className: SceneRenderPipeline
   - hash:
       serializedVersion: 2
+      Hash: e501ab5c46641ef3bdf863c98a7d93d1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewPosAnchors
+  - hash:
+      serializedVersion: 2
       Hash: 87ad3705a58f19c47136728d4a6e9c47
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -816,6 +1004,12 @@ ScriptsOnlyBuild:
     className: CinemachineTargetGroup
   - hash:
       serializedVersion: 2
+      Hash: 096a50f6a3d89528ac732e9bb63631c7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ETFXSceneManager
+  - hash:
+      serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -846,6 +1040,18 @@ ScriptsOnlyBuild:
     className: CinemachinePOV
   - hash:
       serializedVersion: 2
+      Hash: e1df983ab4f2c4ceab385e644d8682b6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TestSwitchBar
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LookAtCamera
+  - hash:
+      serializedVersion: 2
       Hash: 08705cef837f5d18a4c86b19b1ccf347
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -858,7 +1064,7 @@ ScriptsOnlyBuild:
     className: CameraSwitcher
   - hash:
       serializedVersion: 2
-      Hash: f6d1f8516e5f5204f30ba34ddcfdae41
+      Hash: f85ce516238668fce64604efff39a38c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FieldOfViewPlayer
@@ -868,6 +1074,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: UniversalRenderPipelineEditorResources
+  - hash:
+      serializedVersion: 2
+      Hash: 24b2edb739e02ab9678256f4cc52b87d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PEButtonScript
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -892,6 +1104,18 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBlendListCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 4dae7acf696594c0f6a57b923415748c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Shield
+  - hash:
+      serializedVersion: 2
+      Hash: 0912db8419735ecb16044b834208729d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EpicToonFX
+    className: ETFXLoopScript
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -954,7 +1178,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerVector3
   - hash:
       serializedVersion: 2
-      Hash: 7131648dbdc2706656f925657a44253d
+      Hash: bba44a615ff1fcb9e216526b7ee450fe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -1038,13 +1262,19 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
+      Hash: b5fc3843e35dd6d09a719cb0d10ff4a5
+    assemblyName: DemiLib.dll
+    namespaceName: DG.DemiLib.External
+    className: DeHierarchyComponent
+  - hash:
+      serializedVersion: 2
       Hash: 6b3057497eb6f0e52612476af702bf8c
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: UIFoldout
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 02c8e71b00746019ac0be22558822b2d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PathMover
@@ -1104,6 +1334,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 0dad8b03a7f262eda947f3ec555d5553
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewSizeAnchorsShadow
+  - hash:
+      serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -1116,7 +1352,13 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIntField
   - hash:
       serializedVersion: 2
-      Hash: e7b17677dbb109071598a966886ef309
+      Hash: b41f6a02beff5d31b9210834dce1767e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UICanvasManager
+  - hash:
+      serializedVersion: 2
+      Hash: 94b6bcd73a41846a191f14cdb98b2221
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemsManager
@@ -1126,12 +1368,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: LiftGammaGain
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerInventory
   - hash:
       serializedVersion: 2
       Hash: 5f7a0cdccd1c95c18ffa2233f3f21446
@@ -1156,12 +1392,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerBitField
-  - hash:
-      serializedVersion: 2
-      Hash: 748dd2a2a28da4e618912da5ac45684b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: StandaloneInputModule
   - hash:
       serializedVersion: 2
       Hash: f7858108331b563fb41b80b729297acd
@@ -1212,10 +1442,34 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerCanvas
   - hash:
       serializedVersion: 2
+      Hash: ae69c42f6d2c699875593894c1fad84f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PickableItems
+  - hash:
+      serializedVersion: 2
+      Hash: 633b7a21a07e2e848df526bbef0edc40
+    assemblyName: DOTweenPro.dll
+    namespaceName: DG.Tweening
+    className: DOTweenPath
+  - hash:
+      serializedVersion: 2
+      Hash: d452b4ce4b4cca771c54091cc2623c68
+    assemblyName: DOTweenPro.dll
+    namespaceName: DG.Tweening
+    className: DOTweenVisualManager
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 2423d16a3fe74215a6f77f7eec14e7df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewScale
   - hash:
       serializedVersion: 2
       Hash: f79e983672d079ff24eee15484fb74b8
@@ -1260,10 +1514,22 @@ ScriptsOnlyBuild:
     className: CinemachineFixedSignal
   - hash:
       serializedVersion: 2
+      Hash: 6d5718dcc14beda796c56da8a27eeaa9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewValueText
+  - hash:
+      serializedVersion: 2
       Hash: 8963690ef6f6b05ce03bfd8b5c26e20c
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: NoiseSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 246949318809c13d826fcc56f86aa1c7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraController
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -1320,6 +1586,18 @@ ScriptsOnlyBuild:
     className: CinemachineShot
   - hash:
       serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems
+    className: ImageSlicedMirror
+  - hash:
+      serializedVersion: 2
+      Hash: b416d79b6af1c6ebf52a5f356fa1e2e9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Projectile
+  - hash:
+      serializedVersion: 2
       Hash: a81d4c2c1cf3ad164d277d927a193679
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1348,6 +1626,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: UniversalAdditionalLightData
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MagnifyingObject
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1380,16 +1664,34 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
+      Hash: 5058e62971372d10db24fe80294c7a3d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ETFXProjectileScript
+  - hash:
+      serializedVersion: 2
       Hash: 0a3fa1a367fddc65eb32515029503334
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerButton
   - hash:
       serializedVersion: 2
+      Hash: c05b24e74a03013ad9ce4f1009954150
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: PlayfulSystems.ProgressBar
+    className: BarViewPosImageFill
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Experimental.Rendering.Universal
     className: CinemachineUniversalPixelPerfect
+  - hash:
+      serializedVersion: 2
+      Hash: d293956ba9ec7f5e7d83180dfb2f5f78
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EffectManager
   - hash:
       serializedVersion: 2
       Hash: 84e1b0a548d467bdaf3a16f89a2dbefd
@@ -1404,7 +1706,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 70ad31f3f7b923caac1263cba61646d8
+      Hash: 55732c187b859e5f07c1d30e918ecab7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Bullet
@@ -1434,6 +1736,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerFoldout
   - hash:
       serializedVersion: 2
+      Hash: 7a78facefb92618fadb65111ac589be7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TimeManager
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1452,7 +1760,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: ac44d1964f66c8504a31341208609e68
+      Hash: ae69c42f6d2c699875593894c1fad84f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Items

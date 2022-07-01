@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 464830}
   - component: {fileID: 3397690}
   - component: {fileID: 2373498}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Potion_Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}

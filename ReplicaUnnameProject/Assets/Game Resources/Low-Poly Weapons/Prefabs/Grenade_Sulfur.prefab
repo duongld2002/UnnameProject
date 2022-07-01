@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 450800}
   - component: {fileID: 3387448}
   - component: {fileID: 2359026}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grenade_Sulfur
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -58,6 +58,9 @@ public class FieldOfView : MonoBehaviour
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
+        if (visibleTargets.Count == 0)
+            enemy.enemyState = EnemyState.Idle;
+
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
@@ -68,6 +71,7 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
+                    Debug.Log("Enemy see the player");
 
                     if (enemy.health > 0 && character.currentHealth > 0)
                     {

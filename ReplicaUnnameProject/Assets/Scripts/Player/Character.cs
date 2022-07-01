@@ -111,10 +111,10 @@ public class Character : MonoBehaviour
                 range = 0.5f;
                 break;
             case AttackState.MeleeAttack:
-                range = 1.5f;
+                range = 1f;
                 break;
             case AttackState.RangeAttack:
-                range = 5;
+                range = 5f;
                 break;
         }
 
@@ -154,10 +154,10 @@ public class Character : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("Bullet"))
-        {
-            TakeDamage(0.5f);
-        }
+        //if (other.CompareTag("Bullet"))
+        //{
+        //    TakeDamage(0.5f);
+        //}
     }
 
     //private void OnCollisionEnter(Collision collision)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 456368}
   - component: {fileID: 3338310}
   - component: {fileID: 2358150}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Potion_Berserk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
