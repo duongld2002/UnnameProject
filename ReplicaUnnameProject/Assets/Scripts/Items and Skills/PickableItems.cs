@@ -11,6 +11,7 @@ public class PickableItems : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            EffectManager.Instance.spawmLootEffect(transform.position);
             if (itemsData.itemType == ItemType.Weapon)
             {
                 ItemsManager itemsManager = other.GetComponent<ItemsManager>();

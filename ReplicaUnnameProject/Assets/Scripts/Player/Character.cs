@@ -94,8 +94,8 @@ public class Character : MonoBehaviour
                 animator.SetBool("IsRun", true);
                 break;
             case PlayerState.Die:
-                pathMover.pathPoints.Clear();
                 playerCollider.enabled = false;
+                //pathMover.pathPoints.Clear();
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 3);
                 break;
@@ -159,11 +159,6 @@ public class Character : MonoBehaviour
                     break;
             }
         }
-
-        //if (other.CompareTag("Bullet"))
-        //{
-        //    TakeDamage(0.5f);
-        //}
     }
 
     //private void OnCollisionEnter(Collision collision)
@@ -189,14 +184,16 @@ public class Character : MonoBehaviour
         UpdateHealthBar();
 
         if (currentHealth <= 0)
+        {
+            pathMover.pathPoints.Clear();
             playerState = PlayerState.Die;
+        }
     }
 
     //Health Bar
     private void UpdateHealthBar()
     {
         progressBarPro.SetValue(currentHealth, maxHealth);
-        Debug.Log(currentHealth + " / " + maxHealth);
     }
 
     //Character die
@@ -219,8 +216,6 @@ public class Character : MonoBehaviour
 
     public void performShoot()
     {
-        //gun.transform.localPosition = new Vector3();
-
         if (currentTime == 0)
             Shoot();
 
