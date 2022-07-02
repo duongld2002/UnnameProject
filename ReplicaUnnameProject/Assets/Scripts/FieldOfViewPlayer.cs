@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class FieldOfViewPlayer : MonoBehaviour
 {
-
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
@@ -34,7 +33,7 @@ public class FieldOfViewPlayer : MonoBehaviour
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
-        //DrawFieldOfView();
+        DrawFieldOfView();
 
         StartCoroutine("FindTargetsWithDelay", .2f);
     }
@@ -51,7 +50,7 @@ public class FieldOfViewPlayer : MonoBehaviour
 
     void LateUpdate()
     {
-        DrawFieldOfView();
+        //DrawFieldOfView();
     }
 
     void FindVisibleTargets()
@@ -95,7 +94,7 @@ public class FieldOfViewPlayer : MonoBehaviour
         }
     }
 
-    void DrawFieldOfView()
+    public void DrawFieldOfView()
     {
         viewRadius = character.range * 2;
         int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);

@@ -27,10 +27,10 @@ public class Shield : MonoBehaviour
 
     public void OpenCloseShield()
     {
-        float target = -3;
+        float target = -1;
         if (_shieldOn)
         {
-            target = 3;
+            target = 1;
         }
         //_shieldOn = !_shieldOn;
         if (_disolveCoroutine != null)

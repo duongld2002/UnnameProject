@@ -59,11 +59,6 @@ public class Enemy : MonoBehaviour
                 animator.SetBool("IsAssassin", true);
                 break;
         }
-
-        //if (health <= 0)
-        //{
-        //    Die();
-        //}
     }
 
     public void Disappear()

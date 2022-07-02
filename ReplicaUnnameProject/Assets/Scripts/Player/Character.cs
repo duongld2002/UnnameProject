@@ -24,6 +24,9 @@ public class Character : MonoBehaviour
     public PathCreator pathCreator;
     public PathMover pathMover;
 
+    //Draw field of view
+    [SerializeField] FieldOfViewPlayer FOVP;
+
     //Shield
     public GameObject bubbleShield;
 
@@ -66,6 +69,7 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        range = 0.5f;
 
         currentHealth = maxHealth;
 
@@ -112,9 +116,11 @@ public class Character : MonoBehaviour
                 break;
             case AttackState.MeleeAttack:
                 range = 1f;
+                FOVP.DrawFieldOfView();
                 break;
             case AttackState.RangeAttack:
                 range = 5f;
+                FOVP.DrawFieldOfView();
                 break;
         }
 
@@ -126,8 +132,8 @@ public class Character : MonoBehaviour
 
         attackRange.radius = range;
 
-        if (attackState == AttackState.RangeAttack)
-            attackRange.radius = 0.5f;
+        //if (attackState == AttackState.RangeAttack)
+        //    attackRange.radius = 0.5f;
     }
 
     private void OnTriggerEnter(Collider other)

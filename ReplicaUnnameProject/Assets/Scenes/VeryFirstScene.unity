@@ -224,6 +224,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8713065609354456771, guid: 479ca233a1b472b4eb5edaa3241ffa4e, type: 3}
+      propertyPath: _DisolveSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713065609354456771, guid: 479ca233a1b472b4eb5edaa3241ffa4e, type: 3}
       propertyPath: _DisplacementMagnitude
       value: 0.4
       objectReference: {fileID: 0}
@@ -841,6 +845,7 @@ MonoBehaviour:
   levelState: 0
   pathCreator: {fileID: 1476076902}
   pathMover: {fileID: 464862819}
+  FOVP: {fileID: 464862827}
   bubbleShield: {fileID: 1166767661}
   renderers: []
   range: 0
