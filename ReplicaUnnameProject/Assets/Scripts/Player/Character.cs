@@ -65,8 +65,6 @@ public class Character : MonoBehaviour
     GameObject[] gos;
     public int enemyCount;
 
-    public TimeManager timeManager;
-
     private void Start()
     {
         range = 0.5f;
@@ -211,7 +209,7 @@ public class Character : MonoBehaviour
     //Start Slow-mo
     public void StartSlowMo()
     {
-        timeManager.DoSlowMotion();
+        TimeManager.Instance.DoSlowMotion();
     }
 
     public void performShoot()

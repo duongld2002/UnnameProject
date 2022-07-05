@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EventManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static event Action<int> SetActiveCheckPoint;
 
-    // Update is called once per frame
-    void Update()
+    public static void StartCheckPointEvent(int id)
     {
-        
+        SetActiveCheckPoint?.Invoke(id);
     }
 }

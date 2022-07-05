@@ -57,6 +57,14 @@ public class Projectile : MonoBehaviour
         hit.transform.forward = _hitNormal;
         pool.ReturnObject(gameObject);
 
+        if (collider.CompareTag("Wall"))
+        {
+            Wall wall = collider.GetComponent<Wall>();
+            wall.TakeDamage(1);
+            Debug.Log("This bullet hit wall");
+            pool.ReturnObject(gameObject);
+        }
+
         if (collider.CompareTag("Player"))
         {
             Character character = collider.GetComponent<Character>();
@@ -64,6 +72,8 @@ public class Projectile : MonoBehaviour
             Debug.Log("This bullet hit player");
             pool.ReturnObject(gameObject);
         }
+
+        
 
         //if (collider.CompareTag("Item"))
         //{

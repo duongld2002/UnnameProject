@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    public static TimeManager Instance;
+
     public float slowDownFactor = 0.05f;
     public float slownDownLength = 2f;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Update()
     {
