@@ -19,7 +19,8 @@ public class Boss : MonoBehaviour
     //[SerializeField]
     //FieldOfView fieldOfView;
 
-    public float health = 1;
+    public float currentHealth;
+    public float maxHealth;
 
     public float waitTime;
     private float currentTime;
@@ -43,6 +44,8 @@ public class Boss : MonoBehaviour
         character = player.GetComponent<Character>();
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -101,7 +104,7 @@ public class Boss : MonoBehaviour
 
         EffectManager.Instance.SpawnFireBulletSound();
         //muzzleFlash.SetActive(true);
-        StartCoroutine(wait());
+        //StartCoroutine(wait());
 
         //GameObject g = bulletPool.GetObject();
         //g.transform.position = bulletDirection.position;
@@ -122,18 +125,28 @@ public class Boss : MonoBehaviour
         //g.SetActive(true);
     }
 
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(0.05f);
-        //muzzleFlash.SetActive(false);
-    }
+    //IEnumerator wait()
+    //{
+    //    yield return new WaitForSeconds(0.05f);
+    //    muzzleFlash.SetActive(false);
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
        if (other.CompareTag("Bullet"))
         {
-            health = 0;
-            enemyState = EnemyState.Die;
+            TakeDamage(1);
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0)
+        {
+            animator.SetBool("IsAssassin", true);
+            //gameObject.SetActive(false);
         }
     }
 }

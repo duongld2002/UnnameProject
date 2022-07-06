@@ -119,6 +119,8 @@ public class PathCreator : MonoBehaviour
                     OnNewPathCreated(points);
                 
                     canCall = true;
+
+                    TimeManager.Instance.cancelSlowMotion();
                 }
                 else
                 {
