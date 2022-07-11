@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
-  playerState: 3
+  playerState: 0
   attackState: 0
   levelState: 0
   pathCreator: {fileID: 1476076902}
@@ -5029,8 +5029,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1262836892}
+  - component: {fileID: 1262836893}
   m_Layer: 0
-  m_Name: CameraManager
+  m_Name: Camera Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5050,6 +5051,20 @@ Transform:
   m_Father: {fileID: 1201686325}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1262836893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262836891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a702e0e89e612448cb4453f3dd6872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vcam1: {fileID: 1744723920}
+  vcam2: {fileID: 1154102279}
 --- !u!1 &1419021732
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,8 +5768,9 @@ MonoBehaviour:
   maxHealth: 3
   progressBarPro: {fileID: 1833210728}
   waitTime: 2
+  isAlive: 1
   bullet: {fileID: 1175232728761923025, guid: 74fbfb3c0a2577448a41f141730c6701, type: 3}
-  bulletDirection: {fileID: 2106603515}
+  bulletDirection: {fileID: 2106603514}
   bulletPool: {fileID: 2095849076}
 --- !u!136 &1613449130
 CapsuleCollider:

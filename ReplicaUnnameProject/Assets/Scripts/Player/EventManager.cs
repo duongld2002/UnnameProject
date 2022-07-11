@@ -7,8 +7,15 @@ public class EventManager : MonoBehaviour
 {
     public static event Action<int> SetActiveCheckPoint;
 
+    public static event Action ChangeCamera;
+
     public static void StartCheckPointEvent(int id)
     {
         SetActiveCheckPoint?.Invoke(id);
+    }
+
+    public static void ChangeCameraEvent()
+    {
+        ChangeCamera?.Invoke();
     }
 }

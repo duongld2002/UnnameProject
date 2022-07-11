@@ -157,6 +157,26 @@ public class Character : MonoBehaviour
                     break;
             }
         }
+
+        if (other.TryGetComponent<Boss>(out Boss boss))
+        {
+            transform.LookAt(boss.transform);
+            pathMover.canMove = false;
+            //SetTarget(enemy);
+            switch (attackState)
+            {
+                case AttackState.None:
+                    animator.SetBool("IsAttack", true);
+                    break;
+                case AttackState.MeleeAttack:
+                    animator.SetBool("IsAttack", true);
+                    break;
+                case AttackState.RangeAttack:
+                    animator.SetBool("IsAttack", true);
+                    animator.SetFloat("Blend", 2f);
+                    break;
+            }
+        }
     }
 
     //private void OnCollisionEnter(Collision collision)

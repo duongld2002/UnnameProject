@@ -151,6 +151,7 @@ public class PathCreator : MonoBehaviour
                     OnNewPathCreated(points);
                     canCall = false;
                     TimeManager.Instance.cancelSlowMotion();
+                    //CameraManager.Instance.changeCameraRun();
 
                     if (checkPointPlaces[i].bounds.Contains(lastPoint))
                     {

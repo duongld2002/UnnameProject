@@ -27,12 +27,13 @@ public class Boss : MonoBehaviour
     public float waitTime;
     private float currentTime;
     private bool shot;
+    public bool isAlive;
 
     [Header("Bullet Settings")]
     [SerializeField, Tooltip("Bullet Prefab to Shoot")]
     private GameObject bullet;
     [SerializeField, Tooltip("Bullet Direction and Position to Shoot in")]
-    private Transform bulletDirection;
+    private GameObject bulletDirection;
     //public GameObject muzzleFlash;
 
     [SerializeField]
@@ -48,6 +49,7 @@ public class Boss : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
 
         currentHealth = maxHealth;
+        isAlive = true;
     }
 
     void Update()
@@ -56,7 +58,8 @@ public class Boss : MonoBehaviour
         transform.LookAt(player.transform);
         //bulletDirection.LookAt(player.transform);
 
-        performShoot();
+        if (isAlive)
+            performShoot();
 
         //switch(enemyState)
         //{
@@ -119,8 +122,8 @@ public class Boss : MonoBehaviour
         for (var i = 0; i < n; i++, startAngle += 3)
         {
             GameObject g = bulletPool.GetObject();
-            g.transform.position = bulletDirection.position;
-            g.transform.rotation = Quaternion.AngleAxis(startAngle, transform.up) * bulletDirection.rotation;
+            g.transform.position = bulletDirection.transform.position;
+            g.transform.rotation = Quaternion.AngleAxis(startAngle, transform.up) * bulletDirection.transform.rotation;
             g.SetActive(true);
         }
 
@@ -149,6 +152,8 @@ public class Boss : MonoBehaviour
         if (currentHealth <= 0)
         {
             animator.SetBool("IsAssassin", true);
+            isAlive = false;
+            //bulletDirection.SetActive(false);
             //gameObject.SetActive(false);
         }
     }

@@ -15,9 +15,10 @@ public class CheckPointTrigger : MonoBehaviour
             Character character = other.GetComponent<Character>();
             //character.gameState = GameState.NotStart;
             //character.pathMover.pathPoints.Clear();
-            
+
             //character.pathCreator.points.Clear();
 
+            //CameraManager.Instance.changeCameraDraw();
            
         }
     }
