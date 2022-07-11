@@ -18,8 +18,9 @@ public class PathCreator : MonoBehaviour
 
     public Action<IEnumerable<Vector3>> OnNewPathCreated = delegate { };
 
-    private bool canCall = true;
+    public bool canCall = true;
     private bool isGameStarted = false;
+    private bool canAddPoints = true;
     //DrawState drawState;
 
     public Character character;
@@ -27,8 +28,6 @@ public class PathCreator : MonoBehaviour
     public Collider startCollider;
     public Collider[] checkPointPlaces;
     int v = 0;
-
-    private bool canAddPoints = true;
 
     private void Awake()
     {
@@ -82,7 +81,7 @@ public class PathCreator : MonoBehaviour
 
                 //foreach(var checkpoint in checkPointPlaces)
                 //{
-                //    if (checkpoint.bounds.Contains(hitInfo.point + new Vector3(0, 0.1f, 0)))
+                //    if (checkpoint.bounds.Contains(hitInfo.point))
                 //    {
                 //        canAddPoints = false;
                 //        canCall = true;
@@ -99,41 +98,72 @@ public class PathCreator : MonoBehaviour
             //{
             for (int i = v; i < checkPointPlaces.Length; i++)
             {
-                Debug.Log(v);
-                if (!startCollider.bounds.Contains(firstPoint) && !checkPointPlaces[i].bounds.Contains(lastPoint))
+                //if (!startCollider.bounds.Contains(firstPoint) && !checkPointPlaces[i].bounds.Contains(lastPoint))
+                //{
+                //    canAddPoints = true;
+                //    points.Clear();
+                //    lineRenderer.positionCount = points.Count;
+                //    isGameStarted = false;
+                //    canCall = true;
+                //    Debug.Log(firstPoint + " " + lastPoint);
+                //    Debug.Log("!start && !chkpoint");
+                //}
+                //else if (startCollider.bounds.Contains(firstPoint) && !checkPointPlaces[i].bounds.Contains(lastPoint))
+                //{
+                //    canAddPoints = true;
+                //    points.Clear();
+                //    lineRenderer.positionCount = points.Count;
+                //    isGameStarted = false;
+                //    canCall = true;
+                //    Debug.Log(firstPoint + " " + lastPoint);
+                //    Debug.Log("startplace && !chkpoint");
+                //}
+                if (!startCollider.bounds.Contains(firstPoint))
                 {
                     canAddPoints = true;
                     points.Clear();
                     lineRenderer.positionCount = points.Count;
                     isGameStarted = false;
                     canCall = true;
-                    Debug.Log("**" + checkPointPlaces[i]);
+                    Debug.Log(firstPoint + " " + lastPoint);
+                    Debug.Log("!start && !chkpoint");
                 }
-                else if (startCollider.bounds.Contains(firstPoint) && checkPointPlaces[i].bounds.Contains(lastPoint))
-                {
-                    //character.gameState = GameState.Started;
-                    startCollider = checkPointPlaces[i];
-                
-                    canAddPoints = true;
-                    isGameStarted = false;
-                    OnNewPathCreated(points);
-                
-                    canCall = true;
-
-                    TimeManager.Instance.cancelSlowMotion();
-                }
+                //else if (startCollider.bounds.Contains(firstPoint) && checkPointPlaces[i].bounds.Contains(lastPoint))
+                //{
+                //    //character.gameState = GameState.Started;
+                //    startCollider = checkPointPlaces[i];
+                //
+                //    canAddPoints = true;
+                //    isGameStarted = false;
+                //    OnNewPathCreated(points);
+                //
+                //    canCall = true;
+                //
+                //    TimeManager.Instance.cancelSlowMotion();
+                //
+                //    Debug.Log(firstPoint + " " + lastPoint);
+                //    Debug.Log("start && chkpoint");
+                //}
                 else
                 {
                     canAddPoints = true;
                     isGameStarted = true;
                     OnNewPathCreated(points);
-
                     canCall = false;
+                    TimeManager.Instance.cancelSlowMotion();
+
+                    if (checkPointPlaces[i].bounds.Contains(lastPoint))
+                    {
+                        startCollider = checkPointPlaces[i];
+                        isGameStarted = false;
+                        canCall = true;
+
+                        Debug.Log("chkpoint");
+                    }
                 }
 
                 if (v < checkPointPlaces.Length - 1)
                     v++;
-                Debug.Log(i);
                 break;
             }
 

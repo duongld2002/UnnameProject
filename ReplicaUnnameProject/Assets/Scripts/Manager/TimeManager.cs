@@ -46,6 +46,5 @@ public class TimeManager : MonoBehaviour
     public void cancelSlowMotion()
     {
         isSlow = false;
-        Debug.Log("cancle slow time");
     }
 }

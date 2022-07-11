@@ -10,7 +10,6 @@ public class CheckPointTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("This is the checkpoint");
             EventManager.StartCheckPointEvent(triggerID);
 
             Character character = other.GetComponent<Character>();

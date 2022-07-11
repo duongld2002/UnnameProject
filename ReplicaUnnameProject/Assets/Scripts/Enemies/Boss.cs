@@ -21,6 +21,8 @@ public class Boss : MonoBehaviour
 
     public float currentHealth;
     public float maxHealth;
+    [SerializeField]
+    ProgressBarPro progressBarPro;
 
     public float waitTime;
     private float currentTime;
@@ -113,8 +115,8 @@ public class Boss : MonoBehaviour
         //g.transform.rotation = Quaternion.AngleAxis(-30, transform.up) * bulletDirection.rotation;
 
         int n = 7;
-        var startAngle = -Mathf.FloorToInt((n - 1) / 2) * 10;
-        for (var i = 0; i < n; i++, startAngle += 10)
+        var startAngle = -Mathf.FloorToInt((n - 1) / 2) * 3;
+        for (var i = 0; i < n; i++, startAngle += 3)
         {
             GameObject g = bulletPool.GetObject();
             g.transform.position = bulletDirection.position;
@@ -142,11 +144,18 @@ public class Boss : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        UpdateHealthBar();
 
         if (currentHealth <= 0)
         {
             animator.SetBool("IsAssassin", true);
             //gameObject.SetActive(false);
         }
+    }
+
+    //Health Bar
+    private void UpdateHealthBar()
+    {
+        progressBarPro.SetValue(currentHealth, maxHealth);
     }
 }

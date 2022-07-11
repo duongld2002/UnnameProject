@@ -61,7 +61,6 @@ public class Projectile : MonoBehaviour
         {
             Wall wall = collider.GetComponent<Wall>();
             wall.TakeDamage(1);
-            Debug.Log("This bullet hit wall");
             pool.ReturnObject(gameObject);
         }
 
@@ -69,7 +68,6 @@ public class Projectile : MonoBehaviour
         {
             Character character = collider.GetComponent<Character>();
             character.TakeDamage(1);
-            Debug.Log("This bullet hit player");
             pool.ReturnObject(gameObject);
         }
 
