@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7935777917972771955}
   - component: {fileID: 1880937097314032192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 4586173521017165918}
   - component: {fileID: 399715988301500100}
   - component: {fileID: -3666108667008668461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LaserProjectile Boss
   m_TagString: Bullet
   m_Icon: {fileID: 0}
