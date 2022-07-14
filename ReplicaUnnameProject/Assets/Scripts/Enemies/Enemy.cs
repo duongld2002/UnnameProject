@@ -9,8 +9,14 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour
 {
+    //Character Data
+    [SerializeField]
+    CharacterData enemyData;
+
     Animator animator;
+
     CapsuleCollider capsuleCollider;
+
     public EnemyState enemyState;
 
     //public GameObject gun;
@@ -21,25 +27,39 @@ public class Enemy : MonoBehaviour
     Character character;
     [SerializeField]
     FieldOfView fieldOfView;
+    public float attackRange, attackAngle;
 
+    //Health
     public float health = 1;
+    public bool isAlive;
 
+    //Shooting
     public float waitTime;
     private float currentTime;
     private bool shot;
 
+    //Bullet
     [Header("Bullet Settings")]
     [SerializeField, Tooltip("Bullet Prefab to Shoot")]
     private GameObject bullet;
     [SerializeField, Tooltip("Bullet Direction and Position to Shoot in")]
     private Transform bulletDirection;
     public GameObject muzzleFlash;
-
     [SerializeField]
     private Pooler bulletPool;
 
+    private void Awake()
+    {
+        attackRange = enemyData.attackRange;
+        attackAngle = enemyData.attackAngle;
+    }
+
     void Start()
     {
+        isAlive = true;
+
+        character = FindObjectOfType<Character>().GetComponent<Character>();
+
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
     }
@@ -53,10 +73,12 @@ public class Enemy : MonoBehaviour
                 break;
             case EnemyState.Attack:
                 animator.SetBool("IsFighting", true);
-                performShoot();
+                if (isAlive)
+                    performShoot();
                 break;
             case EnemyState.Die:
                 animator.SetBool("IsAssassin", true);
+                isAlive = false;
                 break;
         }
     }

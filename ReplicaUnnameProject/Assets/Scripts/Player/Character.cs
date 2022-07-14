@@ -15,6 +15,10 @@ public enum AttackState
 
 public class Character : MonoBehaviour
 {
+    //Character data
+    [SerializeField]
+    CharacterData characterData;
+
     public GameState gameState;
     public PlayerState playerState;
     public AttackState attackState;
@@ -36,15 +40,15 @@ public class Character : MonoBehaviour
     //Character attack range
     [Header("Attack Range")]
     public float range;
+    public float attackAngle;
     public CapsuleCollider attackRange, playerCollider;
 
     //Character health
     [Header("Health")]
     public float currentHealth;
-    public float maxHealth = 3;
-    [SerializeField]
-    ProgressBarPro progressBarPro;
-    //private Image healthBar;
+    public float maxHealth;
+    //[SerializeField]
+    //ProgressBarPro progressBarPro;
 
     //Perform Shoot
     [Header("Gun Shoot")]
@@ -65,9 +69,17 @@ public class Character : MonoBehaviour
     GameObject[] gos;
     public int enemyCount;
 
+    private void Awake()
+    {
+        //Get data from scriptableobject
+        range = characterData.attackRange;
+        attackAngle = characterData.attackAngle;
+    }
+
     private void Start()
     {
-        range = 0.5f;
+        //Get data from scriptableobject
+        maxHealth = characterData.health;
 
         currentHealth = maxHealth;
 
@@ -75,7 +87,7 @@ public class Character : MonoBehaviour
         renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         playerCollider = GetComponent<CapsuleCollider>();
 
-        UpdateHealthBar();
+        //UpdateHealthBar();
 
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCount = gos.Length;
@@ -92,12 +104,15 @@ public class Character : MonoBehaviour
                 animator.SetBool("IsRun", true);
                 break;
             case PlayerState.Die:
+                pathMover.canMove = false;
                 playerCollider.enabled = false;
                 //pathMover.pathPoints.Clear();
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 3);
                 break;
             case PlayerState.Lose:
+                pathMover.canMove = false;
+                pathMover.pathPoints.Clear();
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 4);
                 break;
@@ -113,7 +128,7 @@ public class Character : MonoBehaviour
                 range = 0.5f;
                 break;
             case AttackState.MeleeAttack:
-                range = 1f;
+                range = 1.5f;
                 FOVP.DrawFieldOfView();
                 break;
             case AttackState.RangeAttack:
@@ -140,7 +155,7 @@ public class Character : MonoBehaviour
         //if(other.CompareTag("Enemy"))
         if (other.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            transform.LookAt(enemy.transform);
+            //transform.LookAt(enemy.transform);
             pathMover.canMove = false;
             //SetTarget(enemy);
             switch (attackState)
@@ -158,9 +173,29 @@ public class Character : MonoBehaviour
             }
         }
 
-        if (other.TryGetComponent<Boss>(out Boss boss))
+        else if (other.TryGetComponent<EnemyMelee>(out EnemyMelee enemyMelee))
         {
-            transform.LookAt(boss.transform);
+            //transform.LookAt(enemyMelee.transform);
+            pathMover.canMove = false;
+            //SetTarget(enemy);
+            switch (attackState)
+            {
+                case AttackState.None:
+                    animator.SetBool("IsAttack", true);
+                    break;
+                case AttackState.MeleeAttack:
+                    animator.SetBool("IsAttack", true);
+                    break;
+                case AttackState.RangeAttack:
+                    animator.SetBool("IsAttack", true);
+                    animator.SetFloat("Blend", 2f);
+                    break;
+            }
+        }
+
+        else if (other.TryGetComponent<Boss>(out Boss boss))
+        {
+            //transform.LookAt(boss.transform);
             pathMover.canMove = false;
             //SetTarget(enemy);
             switch (attackState)
@@ -199,7 +234,7 @@ public class Character : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        UpdateHealthBar();
+        //UpdateHealthBar();
 
         if (currentHealth <= 0)
         {
@@ -209,10 +244,10 @@ public class Character : MonoBehaviour
     }
 
     //Health Bar
-    private void UpdateHealthBar()
-    {
-        progressBarPro.SetValue(currentHealth, maxHealth);
-    }
+    //private void UpdateHealthBar()
+    //{
+    //    progressBarPro.SetValue(currentHealth, maxHealth);
+    //}
 
     //Character die
     void OnDie()

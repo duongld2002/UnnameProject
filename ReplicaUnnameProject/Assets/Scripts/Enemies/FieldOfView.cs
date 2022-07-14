@@ -27,6 +27,10 @@ public class FieldOfView : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
+        character = FindObjectOfType<Character>().GetComponent<Character>();
+
+        viewRadius = enemy.attackRange * 2;
+        viewAngle = enemy.attackAngle;
 
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
@@ -75,8 +79,12 @@ public class FieldOfView : MonoBehaviour
                     if (enemy.health > 0 && character.currentHealth > 0)
                     {
                         enemy.enemyState = EnemyState.Attack;
-                        this.transform.LookAt(target);
+
+                        //this.transform.LookAt(target);
+
                         gun.LookAt(target.transform.position + Vector3.up);
+
+                        character.playerState = PlayerState.Lose;
                     }
                     else if (enemy.health <= 0)
                     {

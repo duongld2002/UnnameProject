@@ -12,7 +12,6 @@ public class Obstacles : MonoBehaviour
             character.currentHealth = 0;
             character.pathCreator.points.Clear();
             character.playerState = PlayerState.Die;
-            Debug.Log("Wall");
         }
     }
 }

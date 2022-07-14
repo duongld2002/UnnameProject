@@ -77,7 +77,7 @@ public class FieldOfViewPlayer : MonoBehaviour
                     if (character.currentHealth > 0 && character.attackState == AttackState.RangeAttack)
                     {
                         //this.transform.LookAt(target);
-                        itemsManager.currentItem.transform.LookAt(target);
+                        //itemsManager.currentItem.transform.LookAt(target);
                         character.performShoot();
                         attackRange.SetActive(true);
                     }
@@ -96,7 +96,10 @@ public class FieldOfViewPlayer : MonoBehaviour
 
     public void DrawFieldOfView()
     {
+        //Change attack range & angle
         viewRadius = character.range * 2;
+        viewAngle = character.attackAngle;
+
         int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
         float stepAngleSize = viewAngle / stepCount;
         List<Vector3> viewPoints = new List<Vector3>();

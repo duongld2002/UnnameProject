@@ -21,14 +21,14 @@ public class PickableItems : MonoBehaviour
                 gameObject.SetActive(false);
             }
             
-            if (itemsData.itemType == ItemType.Skill)
-            {
-                ItemsManager itemsManager = other.GetComponent<ItemsManager>();
-                if (itemsManager != null)
-                    itemsManager.EquipSkill(itemsData);
-
-                gameObject.SetActive(false);
-            }
+            //if (itemsData.itemType == ItemType.Skill)
+            //{
+            //    ItemsManager itemsManager = other.GetComponent<ItemsManager>();
+            //    if (itemsManager != null)
+            //        itemsManager.EquipSkill(itemsData);
+            //
+            //    gameObject.SetActive(false);
+            //}
         }
     }
 }
