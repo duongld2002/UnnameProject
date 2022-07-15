@@ -26,6 +26,7 @@ public class PathCreator : MonoBehaviour
     public Character character;
 
     public Collider startCollider;
+    public Collider finishCollider;
     public Collider[] checkPointPlaces;
     int v = 0;
 
@@ -34,6 +35,12 @@ public class PathCreator : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
 
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+    }
+
+    private void Start()
+    {
+        startCollider = GameObject.FindGameObjectWithTag("StartPlace").GetComponent<Collider>();
+        finishCollider = GameObject.FindGameObjectWithTag("FinishPlace").GetComponent<Collider>();
     }
 
     private void Update()
@@ -153,7 +160,16 @@ public class PathCreator : MonoBehaviour
                     TimeManager.Instance.cancelSlowMotion();
                     //CameraManager.Instance.changeCameraRun();
 
-                    if (checkPointPlaces[i].bounds.Contains(lastPoint))
+                    if (finishCollider.bounds.Contains(lastPoint))
+                    {
+                        isGameStarted = true;
+                        canCall = false;
+
+                        character.levelState = LevelState.Pass;
+
+                        Debug.Log("Finish");
+                    }
+                    else if (checkPointPlaces[i].bounds.Contains(lastPoint))
                     {
                         startCollider = checkPointPlaces[i];
                         isGameStarted = false;

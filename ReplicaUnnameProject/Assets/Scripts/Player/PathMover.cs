@@ -53,13 +53,18 @@ public class PathMover : MonoBehaviour
             character.playerState = PlayerState.Lose;
         }
         else if (character.currentHealth > 0 && pathPoints.Count == 0
-            && character.gameState == GameState.Started && character.levelState == LevelState.Pass)
+            && character.gameState == GameState.Started && character.levelState == LevelState.Pass
+            && character.enemyCount <= 0)
         {
             character.playerState = PlayerState.Win;
         }
         else if (character.currentHealth <= 0 && pathPoints.Count == 0)
         {
             character.playerState = PlayerState.Die;
+        }
+        else
+        {
+            character.playerState = PlayerState.Lose;
         }
     }
 

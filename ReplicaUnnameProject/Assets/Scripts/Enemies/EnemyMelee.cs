@@ -80,7 +80,7 @@ public class EnemyMelee : MonoBehaviour
 
     public void Disappear()
     {
-        this.gameObject.SetActive(false);
+        this.transform.parent.gameObject.SetActive(false);
     }
 
     public void DecreaseEnemy()

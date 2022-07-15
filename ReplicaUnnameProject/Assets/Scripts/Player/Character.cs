@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
     [SerializeField] FieldOfViewPlayer FOVP;
 
     //Shield
-    public GameObject bubbleShield;
+    //public GameObject bubbleShield;
 
     private Animator animator;
     public SkinnedMeshRenderer[] renderers;
@@ -91,6 +91,8 @@ public class Character : MonoBehaviour
 
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCount = gos.Length;
+
+        bulletPool = GetComponentInChildren<Pooler>();
     }
 
     private void Update()
@@ -137,11 +139,11 @@ public class Character : MonoBehaviour
                 break;
         }
 
-        if (enemyCount <= 0)
-        {
-            pathMover.pathPoints.Clear();
-            levelState = LevelState.Pass;
-        }
+        //if (enemyCount <= 0)
+        //{
+        //    //pathMover.pathPoints.Clear();
+        //    levelState = LevelState.Pass;
+        //}
 
         attackRange.radius = range;
 

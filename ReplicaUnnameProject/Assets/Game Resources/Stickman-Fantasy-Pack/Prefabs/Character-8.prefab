@@ -2068,13 +2068,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItem: {fileID: 0}
-  currentSkill: {fileID: 0}
   Hand: {fileID: 4103441780462287029}
   equippedItems: {fileID: 0}
-  equipedSkill: {fileID: 0}
   character: {fileID: 0}
-  shield: {fileID: 0}
-  shieldCollider: {fileID: 0}
 --- !u!114 &1319893582033651087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,6 +2094,7 @@ MonoBehaviour:
   bubbleShield: {fileID: 8370624712237057613}
   renderers: []
   range: 0
+  attackAngle: 0
   attackRange: {fileID: 1887297740}
   playerCollider: {fileID: 0}
   currentHealth: 0

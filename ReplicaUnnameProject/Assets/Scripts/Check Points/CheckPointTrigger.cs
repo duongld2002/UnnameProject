@@ -12,7 +12,7 @@ public class CheckPointTrigger : MonoBehaviour
         {
             EventManager.StartCheckPointEvent(triggerID);
 
-            Character character = other.GetComponent<Character>();
+            //Character character = other.GetComponent<Character>();
             //character.gameState = GameState.NotStart;
             //character.pathMover.pathPoints.Clear();
 

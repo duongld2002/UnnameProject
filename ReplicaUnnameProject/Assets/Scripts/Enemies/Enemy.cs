@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     private GameObject bullet;
     [SerializeField, Tooltip("Bullet Direction and Position to Shoot in")]
     private Transform bulletDirection;
-    public GameObject muzzleFlash;
+    //public GameObject muzzleFlash;
     [SerializeField]
     private Pooler bulletPool;
 
@@ -62,6 +62,8 @@ public class Enemy : MonoBehaviour
 
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        bulletPool = GetComponentInParent<Pooler>();
     }
 
     void Update()
@@ -115,8 +117,8 @@ public class Enemy : MonoBehaviour
         shot = true;
 
         EffectManager.Instance.SpawnFireBulletSound();
-        muzzleFlash.SetActive(true);
-        StartCoroutine(wait());
+        //muzzleFlash.SetActive(true);
+        //StartCoroutine(wait());
 
         GameObject g = bulletPool.GetObject();
         g.transform.position = bulletDirection.position;
@@ -124,11 +126,11 @@ public class Enemy : MonoBehaviour
         g.SetActive(true);
     }
 
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(0.05f);
-        muzzleFlash.SetActive(false);
-    }
+    //IEnumerator wait()
+    //{
+    //    yield return new WaitForSeconds(0.05f);
+    //    muzzleFlash.SetActive(false);
+    //}
 
     private void OnTriggerEnter(Collider other)
     {

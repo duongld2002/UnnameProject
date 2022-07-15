@@ -61,9 +61,9 @@ public class FieldOfViewMeleeEnemy : MonoBehaviour
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 
-        if (visibleTargets.Count == 0)
-            enemy.enemyState = EnemyState.Idle;
-
+        //if (visibleTargets.Count == 0)
+        //    enemy.enemyState = EnemyState.Idle;
+        
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
