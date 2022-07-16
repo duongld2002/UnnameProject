@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d2a5602c467a743a6ef125d4bd6e0b, type: 3}
+  m_Name: Hammer
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  itemType: 0
+  weaponType: 1
+  skillType: 0
+  itemPrefab: {fileID: 2827053536300659634, guid: fd9f8aae2779f5a4e8c8499558f9cb1a, type: 3}
+  material: {fileID: 0}
+  AttachPosition: {x: 0, y: 0, z: 0}
+  AttachRotation: {x: 0, y: 0, z: 0}
+  CharacterScale: {x: 1, y: 1, z: 1}
+  ItemScale: {x: 70, y: 70, z: 70}

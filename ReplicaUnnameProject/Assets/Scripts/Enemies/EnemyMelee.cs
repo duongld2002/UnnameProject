@@ -132,5 +132,13 @@ public class EnemyMelee : MonoBehaviour
             health = 0;
             enemyState = EnemyState.Die;
         }
+        else if (other.CompareTag("Hammer"))
+        {
+            health = 0;
+            //enemyState = EnemyState.Die;
+            EffectManager.Instance.SpawnBloodPoolEffect(transform.position);
+            DecreaseEnemy();
+            Disappear();
+        }
     }
 }

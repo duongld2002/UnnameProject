@@ -39,7 +39,7 @@ public class PathMover : MonoBehaviour
         if (pathPoints.Count > 0)
         {
             character.playerState = PlayerState.Run;
-            CameraManager.Instance.changeCameraRun();
+            //CameraManager.Instance.changeCameraRun();
             //FindObjectOfType<PathCreator>().canCall = false;
         }
         else if (character.currentHealth > 0 && pathPoints.Count == 0 && character.gameState == GameState.NotStart)

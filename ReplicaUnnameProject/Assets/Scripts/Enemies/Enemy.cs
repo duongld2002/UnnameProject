@@ -135,9 +135,17 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        if (other.CompareTag("Bullet"))
+       {
+           health = 0;
+           enemyState = EnemyState.Die;
+       }
+       else if (other.CompareTag("Hammer"))
         {
             health = 0;
-            enemyState = EnemyState.Die;
+            //enemyState = EnemyState.Die;
+            EffectManager.Instance.SpawnBloodPoolEffect(transform.position);
+            DecreaseEnemy();
+            Disappear();
         }
     }
 }

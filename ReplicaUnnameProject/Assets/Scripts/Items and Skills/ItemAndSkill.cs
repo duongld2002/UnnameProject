@@ -39,5 +39,6 @@ public enum SkillType
 public enum WeaponType
 {
     Melee,
+    Hammer,
     Range
 }

@@ -3,7 +3,12 @@ guid: 9e9328b2922c70e4b96f65bdf15d507a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FireCrack
+    second: {fileID: 2100000, guid: 4f23c60006bd5094fa3dbce934c0bb71, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

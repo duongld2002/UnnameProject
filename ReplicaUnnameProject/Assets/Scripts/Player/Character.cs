@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public enum PlayerState
 {
-    Idle, Run, Die, Win, Lose
+    Idle, Run, Die, Win, Lose, Shock
 }
 
 public enum AttackState
 {
-    None, MeleeAttack, RangeAttack
+    None, MeleeAttack, RangeAttack, Hammer
 }
 
 public class Character : MonoBehaviour
@@ -35,7 +35,9 @@ public class Character : MonoBehaviour
     //public GameObject bubbleShield;
 
     private Animator animator;
-    public SkinnedMeshRenderer[] renderers;
+    //public SkinnedMeshRenderer[] renderers;
+    public SkinnedMeshRenderer renderer;
+    public Material shockedMAT;
 
     //Character attack range
     [Header("Attack Range")]
@@ -84,7 +86,9 @@ public class Character : MonoBehaviour
         currentHealth = maxHealth;
 
         animator = GetComponent<Animator>();
-        renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        //renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
         playerCollider = GetComponent<CapsuleCollider>();
 
         //UpdateHealthBar();
@@ -112,6 +116,14 @@ public class Character : MonoBehaviour
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 3);
                 break;
+            case PlayerState.Shock:
+                pathMover.canMove = false;
+                playerCollider.enabled = false;
+                renderer.material = shockedMAT;
+                //pathMover.pathPoints.Clear();
+                animator.SetBool("IsAttack", true);
+                animator.SetFloat("Blend", 6);
+                break;
             case PlayerState.Lose:
                 pathMover.canMove = false;
                 pathMover.pathPoints.Clear();
@@ -127,10 +139,10 @@ public class Character : MonoBehaviour
         switch (attackState)
         {
             case AttackState.None:
-                range = 0.5f;
+                range = 1f;
                 break;
             case AttackState.MeleeAttack:
-                range = 1.5f;
+                range = 2f;
                 FOVP.DrawFieldOfView();
                 break;
             case AttackState.RangeAttack:
@@ -166,11 +178,11 @@ public class Character : MonoBehaviour
                     animator.SetBool("IsAttack", true);
                     break;
                 case AttackState.MeleeAttack:
+                    animator.SetFloat("Blend", 2f);
                     animator.SetBool("IsAttack", true);
                     break;
                 case AttackState.RangeAttack:
                     animator.SetBool("IsAttack", true);
-                    animator.SetFloat("Blend", 2f);
                     break;
             }
         }
@@ -187,10 +199,10 @@ public class Character : MonoBehaviour
                     break;
                 case AttackState.MeleeAttack:
                     animator.SetBool("IsAttack", true);
+                    animator.SetFloat("Blend", 2f);
                     break;
                 case AttackState.RangeAttack:
                     animator.SetBool("IsAttack", true);
-                    animator.SetFloat("Blend", 2f);
                     break;
             }
         }
@@ -206,11 +218,11 @@ public class Character : MonoBehaviour
                     animator.SetBool("IsAttack", true);
                     break;
                 case AttackState.MeleeAttack:
+                    animator.SetFloat("Blend", 2f);
                     animator.SetBool("IsAttack", true);
                     break;
                 case AttackState.RangeAttack:
                     animator.SetBool("IsAttack", true);
-                    animator.SetFloat("Blend", 2f);
                     break;
             }
         }

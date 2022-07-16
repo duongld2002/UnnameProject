@@ -14,6 +14,7 @@ TagManager:
   - Bullet
   - CheckPoint
   - Wall
+  - Hammer
   layers:
   - Default
   - TransparentFX

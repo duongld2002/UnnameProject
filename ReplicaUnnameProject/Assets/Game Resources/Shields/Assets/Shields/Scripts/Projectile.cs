@@ -49,6 +49,8 @@ public class Projectile : MonoBehaviour
     void Hit(Collider collider)
     {
         GameObject hit = Instantiate(_HitEffect, _hitPos, Quaternion.identity);
+        EffectManager.Instance.SpawnBloodSplashEffect(_hitPos);
+
         Shield shield = collider.GetComponentInParent<Shield>();
         if (shield != null)
         {

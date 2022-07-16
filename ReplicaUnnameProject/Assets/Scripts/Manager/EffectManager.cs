@@ -9,6 +9,10 @@ public class EffectManager : MonoBehaviour
     [Header("Effects")]
     [SerializeField]
     Effect lootEffect;
+    [SerializeField]
+    Effect bloodPoolEffect;
+    [SerializeField]
+    Effect bloodSplashEffect;
 
     [Header("Sounds")]
     [SerializeField]
@@ -26,6 +30,18 @@ public class EffectManager : MonoBehaviour
     public void spawmLootEffect(Vector3 pos)
     {
         SpawnEffect("loot_fx", lootEffect, pos);
+    }
+
+    public void SpawnBloodPoolEffect(Vector3 pos)
+    {
+        //pos = pos.SetY(1.6f);
+        SpawnEffect("blood_pool_fx", bloodPoolEffect, pos);
+    }
+
+    public void SpawnBloodSplashEffect(Vector3 pos)
+    {
+        //pos = pos.SetY(1.6f);
+        SpawnEffect("blood_pool_fx", bloodSplashEffect, pos);
     }
 
     private void SpawnEffect(string name, Effect effectPrefab, Vector3 pos, Transform parent = null, Quaternion rot = default(Quaternion))

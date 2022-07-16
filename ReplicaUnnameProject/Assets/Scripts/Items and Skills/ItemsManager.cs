@@ -7,6 +7,8 @@ public class ItemsManager : MonoBehaviour
     public GameObject currentItem;
     //public GameObject currentSkill;
 
+    public Collider itemCollider;
+
     public GameObject Hand;
 
     [SerializeField]
@@ -24,6 +26,7 @@ public class ItemsManager : MonoBehaviour
     private void Start()
     {
         character = GetComponent<Character>();
+        itemCollider = currentItem.GetComponent<Collider>();
     }
 
     public void EquipItem(ItemAndSkill itemsData)
@@ -40,11 +43,16 @@ public class ItemsManager : MonoBehaviour
         currentItem.transform.localEulerAngles = itemsData.AttachRotation;
         currentItem.transform.localScale = new Vector3(2f, 2f, 2f);
 
+        itemCollider = currentItem.GetComponent<Collider>();
+
         character.bulletDirection = currentItem.transform;
 
         switch (itemsData.weaponType)
         {
             case WeaponType.Melee:
+                character.attackState = AttackState.None;
+                break;
+            case WeaponType.Hammer:
                 character.attackState = AttackState.MeleeAttack;
                 break;
             case WeaponType.Range:
@@ -56,6 +64,16 @@ public class ItemsManager : MonoBehaviour
     public void DropItem()
     {
         currentItem.SetActive(false);
+    }
+
+    public void enableWeapon()
+    {
+        itemCollider.enabled = true;
+    }
+
+    public void disableWeapon()
+    {
+        itemCollider.enabled = false;
     }
 
     //public void EquipSkill(ItemAndSkill itemsData)
