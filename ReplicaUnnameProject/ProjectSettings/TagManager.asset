@@ -15,6 +15,7 @@ TagManager:
   - CheckPoint
   - Wall
   - Hammer
+  - Ice
   layers:
   - Default
   - TransparentFX

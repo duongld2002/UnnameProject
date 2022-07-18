@@ -41,7 +41,8 @@ public class ItemsManager : MonoBehaviour
         currentItem.transform.parent = Hand.transform;
         currentItem.transform.localPosition = itemsData.AttachPosition;
         currentItem.transform.localEulerAngles = itemsData.AttachRotation;
-        currentItem.transform.localScale = new Vector3(2f, 2f, 2f);
+        //currentItem.transform.localScale = new Vector3(2f, 2f, 2f);
+        currentItem.transform.localScale = itemsData.AttachScale;
 
         itemCollider = currentItem.GetComponent<Collider>();
 

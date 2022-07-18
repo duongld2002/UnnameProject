@@ -19,6 +19,7 @@ public class ItemAndSkill : ScriptableObject
 
     public Vector3 AttachPosition;
     public Vector3 AttachRotation;
+    public Vector3 AttachScale;
     public Vector3 CharacterScale;
     public Vector3 ItemScale;
 }

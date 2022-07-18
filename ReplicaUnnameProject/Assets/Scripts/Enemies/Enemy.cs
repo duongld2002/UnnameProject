@@ -9,6 +9,10 @@ public enum EnemyState
 
 public class Enemy : MonoBehaviour
 {
+    //Enemy Renderer
+    public SkinnedMeshRenderer renderer;
+    public Material iceMAT;
+
     //Character Data
     [SerializeField]
     CharacterData enemyData;
@@ -56,6 +60,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        renderer = GetComponentInChildren<SkinnedMeshRenderer>();
+
         isAlive = true;
 
         character = FindObjectOfType<Character>().GetComponent<Character>();
@@ -137,15 +143,24 @@ public class Enemy : MonoBehaviour
        if (other.CompareTag("Bullet"))
        {
            health = 0;
+           EffectManager.Instance.SpawnHitBloodSplashEffect(other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position));
            enemyState = EnemyState.Die;
-       }
+        }
        else if (other.CompareTag("Hammer"))
         {
             health = 0;
             //enemyState = EnemyState.Die;
             EffectManager.Instance.SpawnBloodPoolEffect(transform.position);
+            EffectManager.Instance.SpawnWideBloodSplashEffect(transform.position);
             DecreaseEnemy();
             Disappear();
+        }
+        else if (other.CompareTag("Goal"))
+        {
+            Debug.Log("Ice");
+            renderer.material = iceMAT;
+            health = 0;
+            DecreaseEnemy();
         }
     }
 }

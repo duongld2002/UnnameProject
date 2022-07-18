@@ -13,6 +13,10 @@ public class EffectManager : MonoBehaviour
     Effect bloodPoolEffect;
     [SerializeField]
     Effect bloodSplashEffect;
+    [SerializeField]
+    Effect wideBloodSplashEffect;
+    [SerializeField]
+    Effect hitBloodSplashEffect;
 
     [Header("Sounds")]
     [SerializeField]
@@ -42,6 +46,18 @@ public class EffectManager : MonoBehaviour
     {
         //pos = pos.SetY(1.6f);
         SpawnEffect("blood_pool_fx", bloodSplashEffect, pos);
+    }
+
+    public void SpawnHitBloodSplashEffect(Vector3 pos)
+    {
+        //pos = pos.SetY(1.6f);
+        SpawnEffect("blood_pool_fx", hitBloodSplashEffect, pos);
+    }
+
+    public void SpawnWideBloodSplashEffect(Vector3 pos)
+    {
+        //pos = pos.SetY(1.6f);
+        SpawnEffect("blood_pool_fx", wideBloodSplashEffect, pos);
     }
 
     private void SpawnEffect(string name, Effect effectPrefab, Vector3 pos, Transform parent = null, Quaternion rot = default(Quaternion))

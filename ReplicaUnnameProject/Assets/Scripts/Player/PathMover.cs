@@ -45,7 +45,7 @@ public class PathMover : MonoBehaviour
         else if (character.currentHealth > 0 && pathPoints.Count == 0 && character.gameState == GameState.NotStart)
         {
             character.playerState = PlayerState.Idle;
-            CameraManager.Instance.changeCameraDraw();
+            //CameraManager.Instance.changeCameraDraw();
         }
         else if (character.currentHealth > 0 && pathPoints.Count == 0
             && character.gameState == GameState.Started && character.levelState == LevelState.NotPass)

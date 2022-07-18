@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d2a5602c467a743a6ef125d4bd6e0b, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  name: Hammer
+  name: Sword
   description: 
   itemType: 0
   weaponType: 0
   skillType: 0
   itemPrefab: {fileID: 123080, guid: ef692f86dcc854a7aba0ac610620cb15, type: 3}
   material: {fileID: 0}
-  AttachPosition: {x: -0.1, y: 0.125, z: 0.101}
-  AttachRotation: {x: 3.218, y: 23.066, z: 194.848}
+  AttachPosition: {x: -0.0045, y: 0.0029, z: -0.0045}
+  AttachRotation: {x: -73.773, y: -28.768, z: -151.114}
+  AttachScale: {x: 0.2, y: 0.2, z: 0.2}
   CharacterScale: {x: 1, y: 1, z: 1}
   ItemScale: {x: 5, y: 5, z: 5}

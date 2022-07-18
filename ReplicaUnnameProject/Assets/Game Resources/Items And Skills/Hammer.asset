@@ -21,5 +21,6 @@ MonoBehaviour:
   material: {fileID: 0}
   AttachPosition: {x: 0, y: 0, z: 0}
   AttachRotation: {x: 0, y: 0, z: 0}
+  AttachScale: {x: 2, y: 2, z: 2}
   CharacterScale: {x: 1, y: 1, z: 1}
   ItemScale: {x: 70, y: 70, z: 70}
