@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3928512202749909371}
   m_Layer: 0
   m_Name: Ice Knife
-  m_TagString: Ice
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398342983442740381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.306, z: -0.261}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398342983442740381}
-  m_Mesh: {fileID: 4615164318573497741, guid: a1f46c50689f21b44ab34f53dc543d76, type: 3}
+  m_Mesh: {fileID: 4615164318573497741, guid: 1f347a4a5c09f9d4f8f21b13c58c644a, type: 3}
 --- !u!23 &3175313539216172818
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -93,5 +93,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.011407122, y: 0.005258213, z: 0.08}
-  m_Center: {x: -0.099005625, y: -0.0005757519, z: 0.055}
+  m_Size: {x: 1, y: 6.66, z: 1}
+  m_Center: {x: 0, y: 5, z: 0}

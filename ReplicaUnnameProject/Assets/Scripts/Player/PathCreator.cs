@@ -14,6 +14,8 @@ public class PathCreator : MonoBehaviour
     public LayerMask ignoreLayer;
     private LineRenderer lineRenderer;
 
+    public Material pathMAT;
+
     public List<Vector3> points = new List<Vector3>();
 
     public Action<IEnumerable<Vector3>> OnNewPathCreated = delegate { };
@@ -21,6 +23,7 @@ public class PathCreator : MonoBehaviour
     public bool canCall = true;
     private bool isGameStarted = false;
     private bool canAddPoints = true;
+    private bool errorLine = false;
     //DrawState drawState;
 
     public Character character;
@@ -66,6 +69,7 @@ public class PathCreator : MonoBehaviour
 
     private void drawAPath()
     {
+        lineRenderer.material = pathMAT;
 
         if (Input.GetMouseButtonDown(0))
             points.Clear();
@@ -88,14 +92,16 @@ public class PathCreator : MonoBehaviour
                     }
                 }
 
-                //foreach(var checkpoint in checkPointPlaces)
-                //{
-                //    if (checkpoint.bounds.Contains(hitInfo.point))
-                //    {
-                //        canAddPoints = false;
-                //        canCall = true;
-                //    }
-                //}
+                foreach(var wall in walls)
+                {
+                    if (wall.bounds.Contains(hitInfo.point))
+                    {
+                        canAddPoints = true;
+                        lineRenderer.material.color = Color.red;
+                        points.Clear();
+                        canCall = true;
+                    }
+                }
             }
         }
         else if (Input.GetMouseButtonUp(0))
