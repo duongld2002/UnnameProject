@@ -15,6 +15,7 @@ public class EnemyMelee : MonoBehaviour
     Animator animator;
 
     CapsuleCollider capsuleCollider;
+    public CapsuleCollider weaponCollider;
 
     public EnemyState enemyState;
 
@@ -82,6 +83,11 @@ public class EnemyMelee : MonoBehaviour
                 isAlive = false;
                 break;
         }
+    }
+
+    public void enableWeapon()
+    {
+        weaponCollider.enabled = true;
     }
 
     public void Disappear()

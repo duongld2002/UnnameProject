@@ -139,7 +139,8 @@ public class Character : MonoBehaviour
         switch (attackState)
         {
             case AttackState.None:
-                range = 1f;
+                range = 2f;
+                FOVP.DrawFieldOfView();
                 break;
             case AttackState.MeleeAttack:
                 range = 2f;

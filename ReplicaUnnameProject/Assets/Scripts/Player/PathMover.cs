@@ -8,12 +8,14 @@ public class PathMover : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     public Queue<Vector3> pathPoints = new Queue<Vector3>();
 
+    public GameObject player;
     Character character;
 
     public bool canMove;
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         character = GetComponent<Character>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -28,6 +30,7 @@ public class PathMover : MonoBehaviour
 
     private void Update()
     {
+
         checkState();
 
         if (canMove) 
@@ -72,6 +75,8 @@ public class PathMover : MonoBehaviour
     {
         if (ShouldSetDestination())
         {
+            //player.transform.LookAt(pathPoints.Peek());
+
             navMeshAgent.SetDestination(pathPoints.Dequeue());
             Debug.Log(pathPoints.Count);
         }

@@ -28,6 +28,8 @@ public class PathCreator : MonoBehaviour
     public Collider startCollider;
     public Collider finishCollider;
     public Collider[] checkPointPlaces;
+
+    public Collider[] walls;
     int v = 0;
 
     private void Awake()

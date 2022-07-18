@@ -15,6 +15,8 @@ public class EnemyWeapon : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            Debug.Log("Trigger");
+            EffectManager.Instance.SpawnBloodSplashEffect(other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position));
             character.TakeDamage(1);
         }
     }

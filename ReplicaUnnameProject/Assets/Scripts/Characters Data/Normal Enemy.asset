@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 
-  attackRange: 3
+  attackRange: 2
   attackAngle: 90
   damage: 1
   health: 1
