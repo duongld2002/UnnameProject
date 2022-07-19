@@ -6,7 +6,7 @@ public class EnemyMelee : MonoBehaviour
 {
     //Enemy Renderer
     public SkinnedMeshRenderer renderer;
-    public Material iceMAT;
+    public Material[] materials;
 
     //Character Data
     [SerializeField]
@@ -16,6 +16,7 @@ public class EnemyMelee : MonoBehaviour
 
     CapsuleCollider capsuleCollider;
     public CapsuleCollider weaponCollider;
+    public GameObject weapon;
 
     public EnemyState enemyState;
 
@@ -141,9 +142,13 @@ public class EnemyMelee : MonoBehaviour
     {
        if (other.CompareTag("Bullet"))
         {
-            health = 0;
+            weapon.SetActive(false);
             EffectManager.Instance.SpawnHitBloodSplashEffect(other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position));
-            enemyState = EnemyState.Die;
+            //enemyState = EnemyState.Die;
+            animator.enabled = false;
+            renderer.material = materials[1];
+            health = 0;
+            DecreaseEnemy();
         }
 
         if (other.CompareTag("Hammer"))
@@ -159,7 +164,7 @@ public class EnemyMelee : MonoBehaviour
         if (other.CompareTag("Goal"))
         {
             Debug.Log("Ice");
-            renderer.material = iceMAT;
+            renderer.material = materials[0];
             health = 0;
             DecreaseEnemy();
         }

@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 {
     //Enemy Renderer
     public SkinnedMeshRenderer renderer;
-    public Material iceMAT;
+    public Material[] materials;
 
     //Character Data
     [SerializeField]
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     Animator animator;
 
     CapsuleCollider capsuleCollider;
+    public GameObject weapon;
 
     public EnemyState enemyState;
 
@@ -142,9 +143,13 @@ public class Enemy : MonoBehaviour
     {
        if (other.CompareTag("Bullet"))
        {
-           health = 0;
-           EffectManager.Instance.SpawnHitBloodSplashEffect(other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position));
-           enemyState = EnemyState.Die;
+            weapon.SetActive(false);
+            EffectManager.Instance.SpawnHitBloodSplashEffect(other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position));
+            //enemyState = EnemyState.Die;
+            animator.enabled = false;
+            renderer.material = materials[1];
+            health = 0;
+            DecreaseEnemy();
         }
        else if (other.CompareTag("Hammer"))
         {
@@ -158,7 +163,7 @@ public class Enemy : MonoBehaviour
         else if (other.CompareTag("Goal"))
         {
             Debug.Log("Ice");
-            renderer.material = iceMAT;
+            renderer.material = materials[0];
             health = 0;
             DecreaseEnemy();
         }
