@@ -81,7 +81,7 @@ public class PathCreator : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, ignoreLayer))
             {
-                if (DistanceToLastPoint(hitInfo.point) > 0.5f)
+                if (DistanceToLastPoint(hitInfo.point) > 0.1f)
                 {
                     if (canAddPoints)
                     {

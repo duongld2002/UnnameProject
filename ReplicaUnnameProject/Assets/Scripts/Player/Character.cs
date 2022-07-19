@@ -44,6 +44,7 @@ public class Character : MonoBehaviour
     public float range;
     public float attackAngle;
     public CapsuleCollider attackRange, playerCollider;
+    public ItemsManager itemsManager;
 
     //Character health
     [Header("Health")]
@@ -113,8 +114,10 @@ public class Character : MonoBehaviour
                 pathMover.canMove = false;
                 playerCollider.enabled = false;
                 //pathMover.pathPoints.Clear();
-                animator.SetBool("IsAttack", true);
-                animator.SetFloat("Blend", 3);
+                //animator.SetBool("IsAttack", true);
+                //animator.SetFloat("Blend", 3);
+                animator.enabled = false;
+                itemsManager.DropItem();
                 break;
             case PlayerState.Shock:
                 pathMover.canMove = false;

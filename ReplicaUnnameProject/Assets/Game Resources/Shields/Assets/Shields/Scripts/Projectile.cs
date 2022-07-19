@@ -49,7 +49,6 @@ public class Projectile : MonoBehaviour
     void Hit(Collider collider)
     {
         GameObject hit = Instantiate(_HitEffect, _hitPos, Quaternion.identity);
-        EffectManager.Instance.SpawnBloodSplashEffect(_hitPos);
 
         Shield shield = collider.GetComponentInParent<Shield>();
         if (shield != null)
@@ -59,16 +58,17 @@ public class Projectile : MonoBehaviour
         hit.transform.forward = _hitNormal;
         pool.ReturnObject(gameObject);
 
-        if (collider.CompareTag("Wall"))
-        {
-            Wall wall = collider.GetComponent<Wall>();
-            wall.TakeDamage(1);
-            pool.ReturnObject(gameObject);
-        }
+        //if (collider.CompareTag("Wall"))
+        //{
+        //    Wall wall = collider.GetComponent<Wall>();
+        //    wall.TakeDamage(1);
+        //    pool.ReturnObject(gameObject);
+        //}
 
         if (collider.CompareTag("Player"))
         {
             Character character = collider.GetComponent<Character>();
+            EffectManager.Instance.SpawnBloodSplashEffect(_hitPos);
             character.TakeDamage(1);
             pool.ReturnObject(gameObject);
         }
