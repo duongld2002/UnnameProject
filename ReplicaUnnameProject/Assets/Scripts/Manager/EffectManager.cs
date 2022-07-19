@@ -17,6 +17,10 @@ public class EffectManager : MonoBehaviour
     Effect wideBloodSplashEffect;
     [SerializeField]
     Effect hitBloodSplashEffect;
+    [SerializeField]
+    Effect bombExplosion;
+    [SerializeField]
+    Effect shockEffect;
 
     [Header("Sounds")]
     [SerializeField]
@@ -45,19 +49,31 @@ public class EffectManager : MonoBehaviour
     public void SpawnBloodSplashEffect(Vector3 pos)
     {
         //pos = pos.SetY(1.6f);
-        SpawnEffect("blood_pool_fx", bloodSplashEffect, pos);
+        SpawnEffect("blood_splash_fx", bloodSplashEffect, pos);
     }
 
     public void SpawnHitBloodSplashEffect(Vector3 pos)
     {
         //pos = pos.SetY(1.6f);
-        SpawnEffect("blood_pool_fx", hitBloodSplashEffect, pos);
+        SpawnEffect("blood_hit_splash_fx", hitBloodSplashEffect, pos);
     }
 
     public void SpawnWideBloodSplashEffect(Vector3 pos)
     {
         //pos = pos.SetY(1.6f);
-        SpawnEffect("blood_pool_fx", wideBloodSplashEffect, pos);
+        SpawnEffect("blood_wide_splash_fx", wideBloodSplashEffect, pos);
+    }
+
+    public void SpawnBombExplosionEffect(Vector3 pos)
+    {
+        //pos = pos.SetY(1.6f);
+        SpawnEffect("bomb_explosion_fx", bombExplosion, pos);
+    }
+
+    public void SpawnShockEffect(Vector3 pos)
+    {
+        //pos = pos.SetY(1.6f);
+        SpawnEffect("shock_fx", shockEffect, pos);
     }
 
     private void SpawnEffect(string name, Effect effectPrefab, Vector3 pos, Transform parent = null, Quaternion rot = default(Quaternion))

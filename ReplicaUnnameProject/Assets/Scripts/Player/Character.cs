@@ -126,6 +126,7 @@ public class Character : MonoBehaviour
                 //pathMover.pathPoints.Clear();
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 6);
+                EffectManager.Instance.SpawnShockEffect(transform.position + new Vector3(0, 2, 0));
                 break;
             case PlayerState.Lose:
                 pathMover.canMove = false;
