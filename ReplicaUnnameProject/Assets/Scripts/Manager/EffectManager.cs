@@ -21,6 +21,8 @@ public class EffectManager : MonoBehaviour
     Effect bombExplosion;
     [SerializeField]
     Effect shockEffect;
+    [SerializeField]
+    Effect flameThrowerEffect;
 
     [Header("Sounds")]
     [SerializeField]
@@ -31,8 +33,14 @@ public class EffectManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
-        DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            //Destroy(gameObject);
+        }    
     }
 
     public void spawmLootEffect(Vector3 pos)
@@ -74,6 +82,12 @@ public class EffectManager : MonoBehaviour
     {
         //pos = pos.SetY(1.6f);
         SpawnEffect("shock_fx", shockEffect, pos);
+    }
+
+    public void SpawnFlameEffect(Vector3 pos)
+    {
+        //pos = pos.SetY(1.6f);
+        SpawnEffect("flame_fx", flameThrowerEffect, pos);
     }
 
     private void SpawnEffect(string name, Effect effectPrefab, Vector3 pos, Transform parent = null, Quaternion rot = default(Quaternion))

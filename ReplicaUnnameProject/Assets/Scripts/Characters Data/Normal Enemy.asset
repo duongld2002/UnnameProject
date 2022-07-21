@@ -15,6 +15,6 @@ MonoBehaviour:
   name: 
   description: 
   attackRange: 2
-  attackAngle: 90
+  attackAngle: 75
   damage: 1
   health: 1

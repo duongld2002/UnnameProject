@@ -10,6 +10,10 @@ public class ItemsManager : MonoBehaviour
     public Collider itemCollider;
 
     public GameObject Hand;
+    public GameObject player;
+    public GameObject boss;
+
+    public GameObject firePoint;
 
     [SerializeField]
     private ItemAndSkill equippedItems;
@@ -27,6 +31,8 @@ public class ItemsManager : MonoBehaviour
     {
         character = GetComponent<Character>();
         itemCollider = currentItem.GetComponent<Collider>();
+
+        boss = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     public void EquipItem(ItemAndSkill itemsData)
@@ -57,7 +63,17 @@ public class ItemsManager : MonoBehaviour
                 character.attackState = AttackState.MeleeAttack;
                 break;
             case WeaponType.Range:
-                character.attackState = AttackState.RangeAttack;
+                //character.attackState = AttackState.RangeAttack;
+                //character.pathMover.canMove = false;
+                character.pathMover.pathPoints.Clear();
+                firePoint.transform.LookAt(boss.transform.position);
+                player.transform.LookAt(boss.transform.position);
+                Debug.Log(boss.transform.localPosition);
+                player.GetComponent<Animator>().SetBool("IsAttack", true);
+                player.GetComponent<Animator>().SetFloat("Blend", 7);
+                //EffectManager.Instance.SpawnFlameEffect(firePoint.position);
+                firePoint.SetActive(true);
+                StartCoroutine(DestroyBulletAfterTime());
                 break;
         }
     }
@@ -75,6 +91,12 @@ public class ItemsManager : MonoBehaviour
     public void disableWeapon()
     {
         itemCollider.enabled = false;
+    }
+
+    IEnumerator DestroyBulletAfterTime()
+    {
+        yield return new WaitForSeconds(1f);
+        firePoint.SetActive(false);
     }
 
     //public void EquipSkill(ItemAndSkill itemsData)

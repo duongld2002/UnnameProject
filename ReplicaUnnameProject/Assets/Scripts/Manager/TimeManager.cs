@@ -16,8 +16,14 @@ public class TimeManager : MonoBehaviour
         isSlow = true;
 
         if (Instance == null)
+        {
             Instance = this;
-        DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            //Destroy(gameObject);
+        }
     }
 
     private void Update()

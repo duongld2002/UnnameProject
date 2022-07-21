@@ -21,8 +21,8 @@ public class Boss : MonoBehaviour
 
     public float currentHealth;
     public float maxHealth;
-    [SerializeField]
-    ProgressBarPro progressBarPro;
+    //[SerializeField]
+    //ProgressBarPro progressBarPro;
 
     public float waitTime;
     private float currentTime;
@@ -147,7 +147,7 @@ public class Boss : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        UpdateHealthBar();
+        //UpdateHealthBar();
 
         if (currentHealth <= 0)
         {
@@ -159,8 +159,8 @@ public class Boss : MonoBehaviour
     }
 
     //Health Bar
-    private void UpdateHealthBar()
-    {
-        progressBarPro.SetValue(currentHealth, maxHealth);
-    }
+    //private void UpdateHealthBar()
+    //{
+    //    progressBarPro.SetValue(currentHealth, maxHealth);
+    //}
 }

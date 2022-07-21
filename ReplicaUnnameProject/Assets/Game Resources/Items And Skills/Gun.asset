@@ -15,11 +15,12 @@ MonoBehaviour:
   name: Gun
   description: 
   itemType: 0
-  weaponType: 1
+  weaponType: 2
   skillType: 0
-  itemPrefab: {fileID: 100000, guid: 876a9efcae3245e4ab66feeb8f437976, type: 3}
+  itemPrefab: {fileID: 7991633646357260239, guid: 0eef3993bdbe76d46b288d4750bc81e0, type: 3}
   material: {fileID: 0}
-  AttachPosition: {x: -0.1, y: 0.125, z: 0.101}
-  AttachRotation: {x: 3.218, y: 23.066, z: 194.848}
+  AttachPosition: {x: 0.0539, y: -0.1359, z: -0.0514}
+  AttachRotation: {x: 28.328, y: -88.235, z: 5.775}
+  AttachScale: {x: 0.02, y: 0.02, z: 0.02}
   CharacterScale: {x: 1, y: 1, z: 1}
-  ItemScale: {x: 2, y: 2, z: 2}
+  ItemScale: {x: 0.7, y: 0.7, z: 0.7}

@@ -58,12 +58,12 @@ public class Projectile : MonoBehaviour
         hit.transform.forward = _hitNormal;
         pool.ReturnObject(gameObject);
 
-        //if (collider.CompareTag("Wall"))
-        //{
-        //    Wall wall = collider.GetComponent<Wall>();
-        //    wall.TakeDamage(1);
-        //    pool.ReturnObject(gameObject);
-        //}
+        if (collider.CompareTag("Wall"))
+        {
+            Wall wall = collider.GetComponent<Wall>();
+            wall.TakeDamage(1);
+            pool.ReturnObject(gameObject);
+        }
 
         if (collider.CompareTag("Player"))
         {

@@ -118,6 +118,7 @@ public class Character : MonoBehaviour
                 //animator.SetFloat("Blend", 3);
                 animator.enabled = false;
                 itemsManager.DropItem();
+                GameplayManager.Instance.losePopup();
                 break;
             case PlayerState.Shock:
                 pathMover.canMove = false;
@@ -127,16 +128,19 @@ public class Character : MonoBehaviour
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 6);
                 EffectManager.Instance.SpawnShockEffect(transform.position + new Vector3(0, 2, 0));
+                GameplayManager.Instance.losePopup();
                 break;
             case PlayerState.Lose:
                 pathMover.canMove = false;
                 pathMover.pathPoints.Clear();
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 4);
+                GameplayManager.Instance.losePopup();
                 break;
             case PlayerState.Win:
                 animator.SetBool("IsAttack", true);
                 animator.SetFloat("Blend", 5);
+                GameplayManager.Instance.winPopup();
                 break;
         }
 
@@ -151,8 +155,9 @@ public class Character : MonoBehaviour
                 FOVP.DrawFieldOfView();
                 break;
             case AttackState.RangeAttack:
-                range = 5f;
-                FOVP.DrawFieldOfView();
+                //range = 20f;
+                //FOVP.DrawFieldOfView();
+                //EffectManager.Instance.SpawnFlameEffect();
                 break;
         }
 
@@ -177,6 +182,13 @@ public class Character : MonoBehaviour
             //transform.LookAt(enemy.transform);
             pathMover.canMove = false;
             //SetTarget(enemy);
+
+            if (enemyCount == 1)
+            {
+                Debug.Log("Cam");
+                CameraManager.Instance.changeCameraRun();
+            }
+
             switch (attackState)
             {
                 case AttackState.None:
@@ -186,9 +198,9 @@ public class Character : MonoBehaviour
                     animator.SetFloat("Blend", 2f);
                     animator.SetBool("IsAttack", true);
                     break;
-                case AttackState.RangeAttack:
-                    animator.SetBool("IsAttack", true);
-                    break;
+                //case AttackState.RangeAttack:
+                //    animator.SetBool("IsAttack", true);
+                //    break;
             }
         }
 
@@ -197,6 +209,13 @@ public class Character : MonoBehaviour
             //transform.LookAt(enemyMelee.transform);
             pathMover.canMove = false;
             //SetTarget(enemy);
+
+            if (enemyCount == 1)
+            {
+                Debug.Log("Cam");
+                CameraManager.Instance.changeCameraRun();
+            }
+
             switch (attackState)
             {
                 case AttackState.None:
@@ -206,31 +225,31 @@ public class Character : MonoBehaviour
                     animator.SetBool("IsAttack", true);
                     animator.SetFloat("Blend", 2f);
                     break;
-                case AttackState.RangeAttack:
-                    animator.SetBool("IsAttack", true);
-                    break;
+                //case AttackState.RangeAttack:
+                //    animator.SetBool("IsAttack", true);
+                //    break;
             }
         }
 
-        else if (other.TryGetComponent<Boss>(out Boss boss))
-        {
-            //transform.LookAt(boss.transform);
-            pathMover.canMove = false;
-            //SetTarget(enemy);
-            switch (attackState)
-            {
-                case AttackState.None:
-                    animator.SetBool("IsAttack", true);
-                    break;
-                case AttackState.MeleeAttack:
-                    animator.SetFloat("Blend", 2f);
-                    animator.SetBool("IsAttack", true);
-                    break;
-                case AttackState.RangeAttack:
-                    animator.SetBool("IsAttack", true);
-                    break;
-            }
-        }
+        //else if (other.TryGetComponent<Boss>(out Boss boss))
+        //{
+        //    //transform.LookAt(boss.transform);
+        //    pathMover.canMove = false;
+        //    //SetTarget(enemy);
+        //    switch (attackState)
+        //    {
+        //        case AttackState.None:
+        //            animator.SetBool("IsAttack", true);
+        //            break;
+        //        case AttackState.MeleeAttack:
+        //            animator.SetFloat("Blend", 2f);
+        //            animator.SetBool("IsAttack", true);
+        //            break;
+        //        case AttackState.RangeAttack:
+        //            animator.SetBool("IsAttack", true);
+        //            break;
+        //    }
+        //}
     }
 
     //private void OnCollisionEnter(Collision collision)
@@ -247,6 +266,7 @@ public class Character : MonoBehaviour
     {
         pathMover.canMove = true;
         animator.SetBool("IsAttack", false);
+        CameraManager.Instance.changeCameraDraw();
     }
 
     //Take damage from enemy projectile 

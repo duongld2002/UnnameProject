@@ -12,7 +12,7 @@ public class CheckPoint : MonoBehaviour
 
     void Start()
     {
-        wall.DOLocalMoveY(25, 4);
+        //wall.DOLocalMoveY(25, 4);
 
         EventManager.SetActiveCheckPoint += activeChkPoint;
     }

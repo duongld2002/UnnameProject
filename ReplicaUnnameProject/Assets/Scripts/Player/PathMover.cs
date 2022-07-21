@@ -60,6 +60,9 @@ public class PathMover : MonoBehaviour
             && character.enemyCount <= 0)
         {
             character.playerState = PlayerState.Win;
+            character.pathMover.pathPoints.Clear();
+            player.transform.LookAt(Camera.main.transform.position);
+            CameraManager.Instance.faceCamera();
         }
         else if (character.currentHealth <= 0 && pathPoints.Count == 0)
         {

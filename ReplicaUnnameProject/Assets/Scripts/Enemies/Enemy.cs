@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     public SkinnedMeshRenderer renderer;
     public Material[] materials;
 
+    public GameObject model;
+    public GameObject shatters;
+
     //Character Data
     [SerializeField]
     CharacterData enemyData;
@@ -165,7 +168,15 @@ public class Enemy : MonoBehaviour
             Debug.Log("Ice");
             renderer.material = materials[0];
             health = 0;
+            StartCoroutine(DestroyObjAfterTime());
             DecreaseEnemy();
         }
+    }
+
+    IEnumerator DestroyObjAfterTime()
+    {
+        yield return new WaitForSeconds(2f);
+        model.SetActive(false);
+        shatters.SetActive(true);
     }
 }
